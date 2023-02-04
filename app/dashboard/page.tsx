@@ -1,8 +1,8 @@
 import React from "react";
-import SignUp from "./SignUp";
+import Dashboard from "./Dashboard";
 
 const page = () => {
-  return <SignUp />;
+  return <Dashboard />;
 };
 
 export default page;

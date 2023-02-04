@@ -1,9 +1,11 @@
-import Calculator from "@/components/Calculator";
+import Calculator from "@/app/(components)/Calculator";
 import Link from "next/link";
+import Header from "./(components)/Header";
 
 export default function Home() {
   return (
     <main>
+      <Header />
       <div className="bg-neutral-900 text-white flex flex-col gap-2 py-8">
         <div className="flex justify-between">
           <p className="text-xl">Trusted Site</p>
