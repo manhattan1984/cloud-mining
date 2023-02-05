@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div className="flex gap-2 items-center">
             <TiLocation className="text-xl text-white" />
-            <p>1900 Fifth Avenue North Birmingham, Alabama, USA</p>
+            <p className="text-sm">1900 Fifth Avenue North Birmingham, Alabama, USA</p>
           </div>
         </div>
       </div>

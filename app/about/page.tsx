@@ -1,7 +1,25 @@
+import Image from "next/image";
 import React from "react";
 import Divider from "../(components)/Divider";
 import Footer from "../(components)/Footer";
 import Header from "../(components)/Header";
+import DataCenter from "../../public/datacenter.jpeg";
+import { BiBuilding } from "react-icons/bi";
+
+const DataCenterItem = () => {
+  return (
+    <div className="my-4">
+      <div className="w-11/12 mx-auto">
+        <div className="flex gap-2 items-center text-xl">
+          <BiBuilding className="text-green-700" />
+          <p className="">Data Center Location</p>
+        </div>
+        <p className="mb-2">Our Mining Data Centers are located in Kazakhstan</p>
+      </div>
+      <Image alt="data center" src={DataCenter} />
+    </div>
+  );
+};
 
 const page = () => {
   return (
@@ -32,6 +50,18 @@ const page = () => {
           innovations.
         </p>
       </div>
+      <div className="">
+        <div className="w-11/12 mx-auto">
+          <p className="text-3xl my-2">Our Data Center</p>
+          <Divider />
+        </div>
+        <div className="">
+          {[1, 2, 3].map((index) => (
+            <DataCenterItem key={index} />
+          ))}
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
