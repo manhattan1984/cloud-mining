@@ -157,7 +157,7 @@ export default function Home() {
 
         <div className="flex flex-col gap-2">
           {[1, 2, 3].map((index) => (
-            <Plan />
+            <Plan key={index} />
           ))}
         </div>
       </div>

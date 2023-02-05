@@ -13,7 +13,7 @@ const SignIn = () => {
       <div className="p-4 shadow m-4 rounded bg-white flex flex-col gap-3 w-full">
         <p className="text-center text-2xl">Sign Up</p>
         <div className="text-center my-2">
-          <p className="text-3xl">cloud mining</p>
+          <p className="text-3xl">Zipo Aid Mining</p>
         </div>
 
         <div className="">
