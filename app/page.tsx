@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-cover bg-[url('https://images.unsplash.com/photo-1641580529558-a96cf6efbc72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')] text-white">
+      <div className="bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1641580529558-a96cf6efbc72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')] text-white">
         <div className="backdrop-brightness-50 p-4">
           <p className="text-5xl uppercase">
             start mining
