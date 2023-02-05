@@ -87,12 +87,17 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-gray-50 p-2 text-center">
-        <p className="text-3xl capitalize">How to cloud mining</p>
-        <p className="text-gray-500 my-2">
-          3 easy steps to start cloud mining.
-        </p>
+        <div className="">
+          <p className="text-2xl tracking-widest w-1/3 mx-auto text-gray-400 font-light">Three steps to getting started</p>
+          <p className="text-3xl uppercase my-4">how it works</p>
+          <div className="h-[1px] bg-green-400 w-1/12 mx-auto"></div>
+          <p className="my-4 text-gray-400 text-sm">
+            Getting started with Zipoaidmining is as simple as A B C! Simple
+            steps to earning maximum profits
+          </p>
+        </div>
         <div className="flex flex-col gap-4 items-center">
-          <div className="p-4 rounded bg-white w-2/3">
+          <div className="p-4 rounded bg-white w-2/3 mx-auto">
             <IoMdCreate className="text-4xl text-green-700 mb-4 w-full" />
             <p className="text-xl capitalize">register account</p>
           </div>
