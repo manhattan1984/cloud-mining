@@ -9,15 +9,13 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <section className="bg-gray-100">
       {/* Include shared UI here e.g. a header or sidebar */}
 
       <SignInNavbar />
 
-      <div className="flex">
-        <SideBar />
-        <div className="">{children}</div>
-      </div>
+      <div className="pt-14">{children}</div>
+      <p className="text-sm text-green-700 px-6 py-2">zipoaid mining</p>
     </section>
   );
 }

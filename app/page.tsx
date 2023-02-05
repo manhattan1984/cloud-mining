@@ -11,6 +11,9 @@ import { useRouter } from "next/navigation";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { GiBuyCard } from "react-icons/gi";
 import { TypeAnimation } from "react-type-animation";
+import Notification from "./(components)/Notification";
+import Footer from "./(components)/Footer";
+import Plan from "./(components)/Plan";
 
 export default function Home() {
   const router = useRouter();
@@ -20,6 +23,7 @@ export default function Home() {
   return (
     <main>
       <Header />
+      <Notification />
       <div className="bg-neutral-900 text-white flex flex-col gap-2 p-4">
         <div className="flex justify-between">
           <p className="text-xl">Trusted Site</p>
@@ -88,7 +92,9 @@ export default function Home() {
       </div>
       <div className="bg-gray-50 p-2 text-center">
         <div className="">
-          <p className="text-2xl tracking-widest w-1/3 mx-auto text-gray-400 font-light">Three steps to getting started</p>
+          <p className="text-2xl tracking-widest w-1/3 mx-auto text-gray-400 font-light">
+            Three steps to getting started
+          </p>
           <p className="text-3xl uppercase my-4">how it works</p>
           <div className="h-[1px] bg-green-400 w-1/12 mx-auto"></div>
           <p className="my-4 text-gray-400 text-sm">
@@ -138,138 +144,48 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="">
+
+      {/* Plans */}
+      <div className="my-4">
         <div className="text-center">
           <p className="font-medium text-2xl my-2">choose mining plan</p>
-          <p className="text-sm mb-4">
+          <p className="text-sm mb-4 w-4/5 mx-auto">
             your hardware is already running, find a plan that's right for you
             (Hashrate Converter)
           </p>
         </div>
 
         <div className="flex flex-col gap-2">
-          <div className="border py-2 px-4 rounded shadow w-11/12 mx-auto">
-            <p className="font-medium text-center">sha-256 cloud mining</p>
-            <div className="flex flex-col gap-1">
-              <div className="flex justify-between">
-                <p>Cryptocurrency</p>
-                <p>Bitcoin</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Minimum Hashrate:</p>
-                <p>10 GH/s</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Maintainance fee:</p>
-                <p className="text-xs text-right">$0.0000009 / 10GH/s / day</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Hardware:</p>
-                <p>Antminer Z11</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Payout In:</p>
-                <p>BTC</p>
-              </div>
-              <div className="flex justify-between">
-                <p>In Stock:</p>
-                <p>Yes</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Term:</p>
-                <p>2 years contract</p>
-              </div>
-              <div className="flex justify-between my-4">
-                <div className="text-left">
-                  <p className="text-lg font-medium">$0.50</p>
-                  <p>per 10 GH/S</p>
-                </div>
-                <button className="text-green-700 uppercase">buy now</button>
-              </div>
-            </div>
-          </div>
-          <div className="border py-2 px-4 rounded shadow w-11/12 mx-auto">
-            <p className="font-medium text-center">sha-256 cloud mining</p>
-            <div className="flex flex-col gap-1">
-              <div className="flex justify-between">
-                <p>Cryptocurrency</p>
-                <p>Bitcoin</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Minimum Hashrate:</p>
-                <p>10 GH/s</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Maintainance fee:</p>
-                <p className="text-xs text-right">$0.0000009 / 10GH/s / day</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Hardware:</p>
-                <p>Antminer Z11</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Payout In:</p>
-                <p>BTC</p>
-              </div>
-              <div className="flex justify-between">
-                <p>In Stock:</p>
-                <p>Yes</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Term:</p>
-                <p>2 years contract</p>
-              </div>
-              <div className="flex justify-between my-4">
-                <div className="text-left">
-                  <p className="text-lg font-medium">$0.50</p>
-                  <p>per 10 GH/S</p>
-                </div>
-                <button className="text-green-700 uppercase">buy now</button>
-              </div>
-            </div>
-          </div>
-          <div className="border py-2 px-4 rounded shadow w-11/12 mx-auto">
-            <p className="font-medium text-center">sha-256 cloud mining</p>
-            <div className="flex flex-col gap-1">
-              <div className="flex justify-between">
-                <p>Cryptocurrency</p>
-                <p>Bitcoin</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Minimum Hashrate:</p>
-                <p>10 GH/s</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Maintainance fee:</p>
-                <p className="text-xs text-right">$0.0000009 / 10GH/s / day</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Hardware:</p>
-                <p>Antminer Z11</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Payout In:</p>
-                <p>BTC</p>
-              </div>
-              <div className="flex justify-between">
-                <p>In Stock:</p>
-                <p>Yes</p>
-              </div>
-              <div className="flex justify-between">
-                <p>Term:</p>
-                <p>2 years contract</p>
-              </div>
-              <div className="flex justify-between my-4">
-                <div className="text-left">
-                  <p className="text-lg font-medium">$0.50</p>
-                  <p>per 10 GH/S</p>
-                </div>
-                <button className="text-green-700 uppercase">buy now</button>
-              </div>
-            </div>
-          </div>
+          {[1, 2, 3].map((index) => (
+            <Plan />
+          ))}
         </div>
       </div>
+
+      {/* Contact Form */}
+      <div className="bg-neutral-800">
+        <div className="w-11/12 mx-auto">
+          <p className="text-white text-3xl py-4">Let's talk about your idea</p>
+
+          <div className="flex flex-col gap-2">
+            <input
+              className="border rounded p-4"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              className="border rounded p-4"
+              type="text"
+              placeholder="Email"
+            />
+            <textarea className="border rounded p-4" placeholder="Message" />
+          </div>
+          <button className="bg-green-400 p-4 text-white uppercase rounded my-4">
+            send message
+          </button>
+        </div>
+      </div>
+      <Footer />
     </main>
   );
 }

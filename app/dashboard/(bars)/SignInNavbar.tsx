@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const SignInNavbar = () => {
   const router = useRouter();
@@ -8,11 +9,9 @@ const SignInNavbar = () => {
     router.push("/");
   };
   return (
-    <nav className="flex justify-between p-2 bg-neutral-900 text-white">
-      <p>Cloud Mining</p>
-      <button className="text-green-700" onClick={signOut}>
-        Sign Out
-      </button>
+    <nav className="fixed w-full flex items-center justify-between p-4 bg-neutral-900 text-white shadow-lg">
+      <p>Zipo Aid Mining</p>
+      <AiOutlineMenu className="text-xl" />
     </nav>
   );
 };
