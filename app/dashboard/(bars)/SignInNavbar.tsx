@@ -10,7 +10,7 @@ const SignInNavbar = () => {
     router.push("/");
   };
   return (
-    <nav className="my-4 fixed w-full flex items-center shadow-lg gap-2 p-2">
+    <nav className="my-4 fixed w-full flex items-center shadow-lg gap-2 p-2 overflow-x-auto">
       <Link className="text-xs" href="/dashboard">Dashboard</Link>
       <Link className="text-xs" href="/dashboard/profile">Profile</Link>
       <Link className="text-xs" href="/dashboard/plans">Plans</Link>
