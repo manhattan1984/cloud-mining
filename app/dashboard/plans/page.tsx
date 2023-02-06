@@ -1,8 +1,8 @@
+import Plans from "@/app/(components)/Plans";
 import React from "react";
-import Settings from "./Settings";
 
 const page = () => {
-  return <Settings />;
+  return <Plans />;
 };
 
 export default page;

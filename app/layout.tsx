@@ -1,4 +1,5 @@
 "use client";
+import Footer from "./(components)/Footer";
 import Header from "./(components)/Header";
 import Menu from "./(components)/Menu";
 import MenuProvider from "./(context)/MenuContext";
@@ -21,6 +22,7 @@ export default function RootLayout({
           <Menu />
           <Header />
           <div className="pt-12">{children}</div>
+          <Footer />
         </MenuProvider>
       </body>
     </html>

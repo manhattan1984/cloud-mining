@@ -115,7 +115,6 @@ const page = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

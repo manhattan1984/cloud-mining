@@ -1,10 +1,8 @@
 import React from "react";
-import Plans from "../(components)/Plans";
+import Profile from "./Profile";
 
 const page = () => {
-  return (
-   <Plans />
-  );
+  return <Profile />;
 };
 
 export default page;

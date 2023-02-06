@@ -24,16 +24,16 @@ const Menu = () => {
             />
           </div>
           <div className="p-4 flex flex-col gap-3 items-center">
-            <Link className="text-3xl" href={"/"}>
+            <Link onClick={() => setShowHomeMenu(!showHomeMenu)} className="text-3xl" href={"/"}>
               Home
             </Link>
-            <Link className="text-3xl" href={"/signin"}>
+            <Link onClick={() => setShowHomeMenu(!showHomeMenu)} className="text-3xl" href={"/signin"}>
               Sign In
             </Link>
-            <Link className="text-3xl" href={"/plans"}>
+            <Link onClick={() => setShowHomeMenu(!showHomeMenu)} className="text-3xl" href={"/plans"}>
               Plans
             </Link>
-            <Link className="text-3xl" href={"/about"}>
+            <Link onClick={() => setShowHomeMenu(!showHomeMenu)} className="text-3xl" href={"/about"}>
               About
             </Link>
           </div>
