@@ -2,21 +2,75 @@ import Image from "next/image";
 import React from "react";
 import Divider from "../(components)/Divider";
 import Footer from "../(components)/Footer";
-import Header from "../(components)/Header";
 import DataCenter from "../../public/datacenter.jpeg";
-import { BiBuilding } from "react-icons/bi";
+import Power from "../../public/power.jpeg";
+import Security from "../../public/security.jpeg";
+// import Cool from "../../public/cooling.mp4";
+// import Server from "../../public/server.mp4";
+import { BiBuilding, BiPowerOff } from "react-icons/bi";
+import { AiOutlineTeam } from "react-icons/ai";
+import { WiSnowflakeCold } from "react-icons/wi";
+import { GoServer } from "react-icons/go";
 
-const DataCenterItem = () => {
+const dataItems = [
+  {
+    icon: <BiBuilding className="text-green-700" />,
+    name: "Data Center Location",
+    body: "Our Mining Data Centers are located in Kazakhstan",
+    image: <Image alt="data center" src={DataCenter} />,
+  },
+  {
+    icon: <BiPowerOff className="text-green-700" />,
+    name: "Power System",
+    body: "We use Hydropower & Wind power,  0.05 $/kWh",
+    image: <Image alt="data center" src={Power} />,
+  },
+  {
+    icon: <GoServer className="text-green-700" />,
+    name: "Data Center Hardware",
+    body: "The newest ASIC miner, GPU rigs are Ready to mine.",
+    image: (
+      <video autoPlay={true} controls>
+        <source src="/cooling.mp4" />
+      </video>
+    ),
+  },
+  {
+    icon: <WiSnowflakeCold className="text-green-700 text-2xl" />,
+    name: "Cooling System",
+    body: "Air cooling system and Water cooling system keeping temperature: 20-24°C.",
+    image: (
+      <video autoPlay={true} controls={true}>
+        <source src="/server.mp4" />
+      </video>
+    ),
+  },
+  {
+    icon: <GoServer className="text-green-700" />,
+    name: "Security/Fire Protection",
+    body: "24/7 on-site guards, intrusion detection systems, IP-DVR cameras",
+    image: <Image alt="data center" src={Security} />,
+  },
+  {
+    icon: <AiOutlineTeam className="text-green-700" />,
+    name: "Our Team",
+    body: "Our mining team come from in blockchain industry and IT engineers.",
+    image: <Image alt="data center" src={Power} />,
+  },
+];
+
+// @ts-ignore
+const DataCenterItem = ({ icon, name, body, image }) => {
   return (
     <div className="my-4">
       <div className="w-11/12 mx-auto">
         <div className="flex gap-2 items-center text-xl">
-          <BiBuilding className="text-green-700" />
-          <p className="">Data Center Location</p>
+          {icon}
+          <p className="">{name}</p>
         </div>
-        <p className="mb-2">Our Mining Data Centers are located in Kazakhstan</p>
+        <p className="mb-2">{body}</p>
       </div>
-      <Image alt="data center" src={DataCenter} />
+      {image}
     </div>
   );
 };
@@ -24,7 +78,6 @@ const DataCenterItem = () => {
 const page = () => {
   return (
     <div className="">
-      <Header />
       <div className="w-11/12 mx-auto">
         <p className="text-3xl my-4">About Us</p>
         <Divider />
@@ -56,8 +109,8 @@ const page = () => {
           <Divider />
         </div>
         <div className="">
-          {[1, 2, 3].map((index) => (
-            <DataCenterItem key={index} />
+          {dataItems.map((item, index) => (
+            <DataCenterItem {...item} key={index} />
           ))}
         </div>
       </div>

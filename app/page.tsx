@@ -1,7 +1,6 @@
 "use client";
 import Calculator from "@/app/(components)/Calculator";
 import Image from "next/image";
-import Header from "./(components)/Header";
 import Android from "../public/android.png";
 import Apple from "../public/apple.png";
 import { IoMdCreate } from "react-icons/io";
@@ -22,7 +21,6 @@ export default function Home() {
   };
   return (
     <main>
-      <Header />
       <Notification />
       <div className="bg-neutral-900 text-white flex flex-col gap-2 p-4">
         <div className="flex justify-between">
