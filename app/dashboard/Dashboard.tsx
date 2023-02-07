@@ -1,16 +1,36 @@
+"use client";
 import React from "react";
 import Balance from "./(components)/Balance";
 import { MdOutlineFilterNone } from "react-icons/md";
+import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
+
+const balances = [
+  {
+    name: "Balance",
+    amount: 0.0,
+  },
+  {
+    name: "Total Investments",
+    amount: 0.0,
+  },
+  {
+    name: "Total Withdrawals",
+    amount: 0.0,
+  },
+  {
+    name: "Referral Bonus",
+    amount: 0.0,
+  },
+];
 
 const Dashboard = () => {
   return (
     <div className="py-4 w-11/12 mx-auto bg-gray-100">
       {/* Amounts */}
       <div className="flex flex-col gap-6">
-        <Balance />
-        <Balance />
-        <Balance />
-        <Balance />
+        {balances.map((balance, index) => (
+          <Balance {...balance} key={index} />
+        ))}
       </div>
 
       {/* Deposits */}
@@ -44,6 +64,10 @@ const Dashboard = () => {
           </div>
           <p className="text-xs text-gray-500">N/A</p>
         </div>
+      </div>
+
+      <div className="overflow-x-auto">
+        <CryptoCurrencyMarket />
       </div>
     </div>
   );
