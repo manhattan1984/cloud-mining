@@ -5,14 +5,96 @@ import Android from "../public/android.png";
 import Apple from "../public/apple.png";
 import { IoMdCreate } from "react-icons/io";
 import { TbHandFinger } from "react-icons/tb";
-import { BsCashCoin, BsSafe2 } from "react-icons/bs";
+import {
+  BsCashCoin,
+  BsFillPieChartFill,
+  BsCurrencyBitcoin,
+  BsFillPlugFill,
+  BsGraphUp,
+  BsFillPhoneFill,
+} from "react-icons/bs";
+import { BiChip } from "react-icons/bi";
+import { FaUsers } from "react-icons/fa";
+import { AiTwotoneSecurityScan, AiOutlinePoweroff } from "react-icons/ai";
+
 import { useRouter } from "next/navigation";
-import { FaMoneyBillAlt } from "react-icons/fa";
-import { GiBuyCard } from "react-icons/gi";
 import { TypeAnimation } from "react-type-animation";
 import Notification from "./(components)/Notification";
 import Plans, { PlanType } from "./(components)/Plans";
 
+const features = [
+  {
+    icon: <BsFillPieChartFill className="text-2xl" />,
+    title: "Pool Allocation",
+    body: "You can decide which pools you want to mine. This allows you to find the most profitable pools.",
+  },
+  {
+    icon: <BsFillPlugFill className="text-2xl" />,
+    title: "Low Maintenance Fee",
+    body: "We got the lowest price on electricity(0.05 $/kWh) and purchasing costs in the Cryptocurrency mining industry.",
+  },
+  {
+    icon: <BiChip className="text-2xl" />,
+    title: "Newest Hardware",
+    body: "We use The newest ASIC miner, GPU rigs. You get the most advanced technologies from HashShiny.io",
+  },
+  {
+    icon: <FaUsers className="text-2xl" />,
+    title: "Expert Team",
+    body: "Our mining team come from in blockchain industry and IT engineers, we have you covered with the knowledge and skills of our team.",
+  },
+  {
+    icon: <BsCurrencyBitcoin className="text-2xl" />,
+    title: "Daily Payout",
+    body: "The mining starts immediately after confirmed payment. First payouts within 24 hours. Afterward, the payouts continue daily.",
+  },
+  {
+    icon: <AiTwotoneSecurityScan className="text-2xl" />,
+    title: "Security",
+    body: "The overwhelming majority of funds are stored in offline, cold wallets. McAfee® SECURE protection. Cloudflare® SECURE protection.",
+  },
+  {
+    icon: <AiOutlinePoweroff className="text-2xl" />,
+    title: "Mining Switch",
+    body: "You can control the Mining process by setting up Switch on or Switch off. You have full control permissions on Mining.",
+  },
+  {
+    icon: <BsGraphUp className="text-2xl" />,
+    title: "Hashrate Graphs",
+    body: "Our graphs give you up to the hourly hashrates, It is a Live Hashrate graph that gives you live data within seconds.",
+  },
+  {
+    icon: <BsFillPhoneFill className="text-2xl" />,
+    title: "Mobile App",
+    body: "Fully functioning Android and Apple Apps that's integrated with our system. Mobile APP currently have better usability than website.",
+  },
+];
+
+// @ts-ignore
+const Feature = ({ icon, title, body }) => (
+  <div className="flex gap-2 basis-1/4">
+    <div className="h-full">{icon}</div>
+    <div className="">
+      <p className="text-2xl">{title}</p>
+      <p className="text-sm text-gray-100">{body}</p>
+    </div>
+  </div>
+);
+
+const coins = [
+  "bitcoin",
+  2000,
+  "ethereum",
+  2000,
+  "Doge",
+  2000,
+  "Litecoin",
+  2000,
+  "Zcash",
+  2000,
+  "ETC",
+  2000,
+];
 export default function Home({ plans }: { plans: PlanType[] }) {
   const router = useRouter();
   const signUp = () => {
@@ -45,20 +127,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
             start mining
             <span>
               <TypeAnimation
-                sequence={[
-                  "bitcoin",
-                  2000,
-                  "ethereum",
-                  2000,
-                  "Doge",
-                  2000,
-                  "Litecoin",
-                  2000,
-                  "Zcash",
-                  2000,
-                  "ETC",
-                  2000,
-                ]}
+                sequence={coins}
                 wrapper="div"
                 cursor={true}
                 repeat={Infinity}
@@ -88,9 +157,9 @@ export default function Home({ plans }: { plans: PlanType[] }) {
         </div>
       </div>
       {/* How It Works */}
-      <div className="bg-gray-50 p-2 text-center">
+      <div className="bg-gray-50 p-4 py-8 text-center">
         <div className="">
-          <p className="text-2xl tracking-widest w-1/3 mx-auto text-gray-400 font-light">
+          <p className="text-2xl tracking-widest w-2/3 mx-auto text-gray-400 font-light">
             Three steps to getting started
           </p>
           <p className="text-3xl uppercase my-4">how it works</p>
@@ -100,16 +169,16 @@ export default function Home({ plans }: { plans: PlanType[] }) {
             steps to earning maximum profits
           </p>
         </div>
-        <div className="flex flex-col gap-4 items-center">
-          <div className="p-4 rounded bg-white w-2/3 mx-auto">
+        <div className="flex flex-col md:flex-row gap-4 items-center md:justify-between">
+          <div className="p-4 rounded bg-white w-full mx-auto">
             <IoMdCreate className="text-4xl text-green-700 mb-4 w-full" />
             <p className="text-xl capitalize">register account</p>
           </div>
-          <div className="p-4 rounded bg-white w-2/3">
+          <div className="p-4 rounded bg-white w-full">
             <TbHandFinger className="text-4xl text-green-700 mb-4 w-full" />
             <p className="text-xl capitalize">choose your plan</p>
           </div>
-          <div className="p-4 rounded bg-white w-2/3">
+          <div className="p-4 rounded bg-white w-full">
             <BsCashCoin className="text-4xl text-green-700 mb-4 w-full" />
             <p className="text-xl capitalize">receive payout everyday</p>
           </div>
@@ -118,7 +187,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
       {/* Space Ship */}
       <div className="bg-neutral-900 h-[100vh] flex flex-col items-center justify-center w-ful gap-4 text-white p-2 py-4 text-center">
         <p className="text-2xl font-bold">ZipoAidMining</p>
-        <div className="w-4/5 mx-auto">
+        <div className="flex justify-center items-center">
           <iframe
             className=""
             src="https://embed.lottiefiles.com/animation/79966"
@@ -131,7 +200,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           We are not just the best, the numbers speak for us.
         </p>
 
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col gap-4 md:flex-row items-center justify-center text-center">
           <div className="">
             <p className="text-4xl font-bold text-green-400 mb-1 mt-3">1322</p>
             <p>Happy Clients</p>
@@ -151,30 +220,13 @@ export default function Home({ plans }: { plans: PlanType[] }) {
       <div className="bg-neutral-100 h-full">
         <Calculator />
       </div>
-      <div className="text-center w-full mb-8 bg-neutral-900 text-white py-8">
-        <p className="mb-8 text-2xl uppercase">Why choose us?</p>
-        <div className="flex flex-col gap-4 w-4/5 mx-auto justify-center">
-          <div className="py-8 text-center p-4 bg-gradient-to-b rounded to-gray-800 from-black border border-neutral-700">
-            <FaMoneyBillAlt className="w-full text-3xl" />
-            <p className="my-4 text-lg uppercase">Instant Trading</p>
-            <button onClick={signUp} className="text-xs w-full underline">
-              Open Account
-            </button>
-          </div>
-          <div className="py-8 text-center p-4 bg-gradient-to-b rounded to-gray-800 from-black border border-neutral-700">
-            <GiBuyCard className="w-full text-3xl" />
-            <p className="my-4 text-lg uppercase">Recurring Buying</p>
-            <button onClick={signUp} className="text-xs w-full underline">
-              Open Account
-            </button>
-          </div>
-          <div className="py-8 text-center p-4 bg-gradient-to-b rounded to-gray-800 from-black border border-neutral-700">
-            <BsSafe2 className="w-full text-3xl" />
-            <p className="my-4 text-lg uppercase">Safe and Secure</p>
-            <button onClick={signUp} className="text-xs w-full underline">
-              Open Account
-            </button>
-          </div>
+      <div className="w-full mb-8 bg-neutral-900 text-white py-8">
+        <p className="mb-8 text-2xl uppercase text-center">Why choose us?</p>
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-4 w-4/5 mx-auto justify-center">
+          {/* Code Here */}
+          {features.map((feature, index) => (
+            <Feature {...feature} key={index} />
+          ))}
         </div>
       </div>
 

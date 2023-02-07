@@ -3,7 +3,7 @@ import React from "react";
 const Profile = () => {
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-white rounded shadow p-4 w-full m-4">
+      <div className="bg-white rounded shadow p-4 w-full m-4 max-w-md">
         <p className="text-xl mb-4">Profile Information</p>
         <div className="flex flex-col gap-2">
           <div className="">

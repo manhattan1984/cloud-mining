@@ -4,14 +4,15 @@ import Divider from "./Divider";
 export type PlanType = {
   name: string;
   minimum: number;
-  maximum: number;
+  maximum: number | string;
   interest: number;
   duration: number;
 };
 
 const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
+  const maximumType = typeof maximum;
   return (
-    <div className="border rounded shadow w-4/5 mx-auto">
+    <div className="border rounded shadow w-4/5 mx-auto basis-1/4 flex-grow">
       <p className="rounded font-medium text-center text-2xl capitalize text-green-600 bg-neutral-200 p-2 mb-3">
         {name}
       </p>
@@ -22,7 +23,10 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
         </div>
         <div className="flex justify-between">
           <p>Maximum Funding:</p>
-          <p>${maximum}</p>
+          <p>
+            {maximumType === "string" ? "" : "$"}
+            {maximum}
+          </p>
         </div>
         <div className="flex justify-between">
           <p>Interest Rate:</p>
@@ -31,6 +35,10 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
         <div className="flex justify-between">
           <p>Duration:</p>
           <p>{duration} Hours</p>
+        </div>
+        <div className="flex justify-between">
+          <p>Bitcoin Hashrate:</p>
+          <p>14710TH/s</p>
         </div>
         <div className="flex justify-between">
           <p>Fast Payout:</p>
@@ -55,8 +63,9 @@ const Plans = ({ plans }: { plans: PlanType[] }) => {
       <div className="w-11/12 mx-auto">
         <p className="text-3xl my-2">Our Plans</p>
         <Divider />
-        <div className="flex flex-col gap-4 my-4">
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-4 my-4">
           {plans.map((plan, index) => (
+            // <div className=""></div>
             <Plan {...plan} key={index} />
           ))}
         </div>

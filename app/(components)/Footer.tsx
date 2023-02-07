@@ -6,7 +6,7 @@ import Divider from "./Divider";
 
 const Footer = () => {
   return (
-    <div className="bg-neutral-900 text-white h-full p-4 flex flex-col gap-4">
+    <div className="bg-neutral-900 text-white h-full p-4 flex flex-col gap-4 md:flex-row md:flex-wrap">
       <div className="">
         <p className="text-xl mb-1">About Zipo Aid Mining</p>
         <Divider />
@@ -39,7 +39,7 @@ const Footer = () => {
       <div className="">
         <p className="text-xl">Useful Links</p>
         <Divider />
-        <div className="flex flex-col gap-3 py-2">
+        <div className="flex flex-col gap-3 py-2 md:flex-row">
           <Link className="text-sm text-gray-400" href="/">
             Home
           </Link>

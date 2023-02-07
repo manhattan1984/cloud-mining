@@ -3,7 +3,7 @@ import React from "react";
 const page = () => {
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-white rounded p-4 shadow w-full m-4">
+      <div className="bg-white rounded p-4 shadow w-full m-4 max-w-md">
         <p className="text-xl">Change Password</p>
         <p className="text-xs my-2">Don't share password with anyone</p>
 

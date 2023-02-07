@@ -10,8 +10,8 @@ const SignIn = () => {
   };
   return (
     <div className="bg-neutral-50 flex items-center h-[90vh]">
-      <div className="p-4 shadow m-4 rounded bg-white flex flex-col gap-3 w-full">
-        <p className="text-center text-2xl">Sign In</p>
+      <div className="max-w-md mx-auto p-4 shadow m-4 rounded bg-white flex flex-col gap-3 w-full">
+        <p className="text-center text-md text-green-600 uppercase">Sign In</p>
         <div className="text-center my-2">
           <p className="text-3xl">Zipo Aid Mining</p>
         </div>

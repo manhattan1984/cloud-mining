@@ -25,11 +25,11 @@ const SignUp = () => {
     recaptchaRef.current.reset();
   };
   return (
-    <div className="bg-neutral-50">
-      <div className="p-4 shadow m-4 rounded bg-white flex flex-col gap-3">
-        <p className="text-center text-2xl">Sign Up</p>
+    <div className="bg-neutral-50 p-2">
+      <div className="max-w-lg mx-auto p-4 shadow m-4 rounded bg-white flex flex-col gap-3">
+        <p className="text-center text-md uppercase text-green-600">Sign Up</p>
         <div className="text-center my-2">
-          <p className="text-3xl">Zipo Aid Mining</p>
+          <p className="text-3xl">ZipoAid Mining</p>
         </div>
         <div className="flex gap-2">
           <div className="w-full">
@@ -96,7 +96,7 @@ const SignUp = () => {
             name=""
             id=""
           />
-          <p>I agree to Zipo Aid Mining terms of use</p>
+          <p className="text-xs">I agree to Zipo Aid Mining terms of use</p>
         </div>
         <ReCAPTCHA
           ref={recaptchaRef}

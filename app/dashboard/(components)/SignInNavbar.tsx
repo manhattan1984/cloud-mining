@@ -8,26 +8,26 @@ const SignInNavbar = () => {
     router.push("/");
   };
   return (
-    <nav className="my-4 fixed w-full flex items-start shadow-lg gap-2 p-2 overflow-x-auto">
-      <Link className="text-xs" href="/dashboard">
+    <nav className="my-4 fixed w-full flex items-start shadow-lg gap-2 p-2 overflow-x-auto text-green-700 text-xs">
+      <Link className="" href="/dashboard">
         Dashboard
       </Link>
-      <Link className="text-xs" href="/dashboard/profile">
+      <Link className="" href="/dashboard/profile">
         Profile
       </Link>
-      <Link className="text-xs" href="/dashboard/plans">
+      <Link className="" href="/dashboard/plans">
         Plans
       </Link>
-      <Link className="text-xs" href="/dashboard/withdraw">
+      <Link className="" href="/dashboard/withdraw">
         Withdraw
       </Link>
-      <Link className="text-xs" href="/dashboard/transactionlog">
+      <Link className="" href="/dashboard/transactionlog">
         Transactions
       </Link>
-      <Link className="text-xs" href="/dashboard/referrals">
+      <Link className="" href="/dashboard/referrals">
         Referrals
       </Link>
-      <Link className="text-xs" href="/dashboard/change-password">
+      <Link className="" href="/dashboard/change-password">
         Change Password
       </Link>
     </nav>

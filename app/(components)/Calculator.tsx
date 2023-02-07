@@ -9,7 +9,7 @@ const Profit = ({
   dollars: number;
   btc: number;
 }) => (
-  <div className="bg-white p-2 rounded">
+  <div className="bg-white p-2 rounded w-full">
     <p className="text-xl text-green-600 mb-2">{term}</p>
     <div className="">
       <p className="text-2xl mb-2">${dollars}</p>
@@ -52,18 +52,18 @@ const Calculator = () => {
           <button className="text-green-500">DOGE</button>
           <button className="text-green-500">DCR</button>
         </div>
-        <div className="flex flex-col gap-2 w-1/2">
-          <div className="">
+        <div className="flex flex-col lg:flex-row gap-2 w-1/2 md:w-full">
+          <div className="flex-1 w-full">
             <p className="text-sm font-light">Dollars ($)</p>
-            <input className="p-1 border" type="number" />
+            <input className="p-1 border w-full" type="number" />
           </div>
-          <div className="">
+          <div className="flex-1">
             <p className="text-sm font-light">Profit ($)</p>
-            <input className="p-1 border" type="number" />
+            <input className="p-1 border w-full" type="number" />
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 p-2">
+      <div className="flex flex-col md:flex-row gap-4 p-2">
         {profits.map((profit, index) => (
           <Profit key={index} {...profit} />
         ))}

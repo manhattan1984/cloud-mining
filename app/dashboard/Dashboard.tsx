@@ -27,7 +27,7 @@ const Dashboard = () => {
   return (
     <div className="py-4 w-11/12 mx-auto bg-gray-100">
       {/* Amounts */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 md:flex-row md:flex-wrap">
         {balances.map((balance, index) => (
           <Balance {...balance} key={index} />
         ))}
@@ -66,7 +66,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto justify-center flex">
         <CryptoCurrencyMarket />
       </div>
     </div>

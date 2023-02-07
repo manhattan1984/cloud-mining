@@ -30,8 +30,8 @@ const plans = [
   {
     name: "Retirement",
     minimum: 15000,
-    maximum: 1_000_000,
-    interest: 5,
+    maximum: 'Unlimited',
+    interest: 15,
     duration: 24,
   },
 ];
