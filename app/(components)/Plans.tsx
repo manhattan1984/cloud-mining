@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Divider from "./Divider";
 
@@ -49,9 +50,11 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
           <p>Yes</p>
         </div>
 
-        <button className="text-green-700 uppercase text-left py-4">
-          buy now
-        </button>
+        <Link href={`/dashboard/plans/${name}`}>
+          <button className="text-green-700 uppercase text-left py-4">
+            buy now
+          </button>
+        </Link>
       </div>
     </div>
   );
