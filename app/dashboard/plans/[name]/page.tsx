@@ -6,7 +6,7 @@ import plans from "../../../(data)/plans";
 const page = ({ params: name }) => {
   const plan = plans.find((plan) => plan.name === name.name);
   // @ts-ignore
-  return <Invest plan={plan} />;
+  return plan ? <Invest plan={plan} /> : <p>error</p>;
 };
 
 export default page;
