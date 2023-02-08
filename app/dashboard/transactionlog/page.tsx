@@ -10,7 +10,7 @@ const page = () => {
           <p>Transaction Id</p>
           <p>Type</p>
           <p>Amount</p>
-          <p>Data</p>
+          <p>Date</p>
           <p>Status</p>
         </div>
         <div className="border p-8">

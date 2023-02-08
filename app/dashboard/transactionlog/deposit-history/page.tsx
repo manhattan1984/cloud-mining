@@ -7,7 +7,7 @@ const page = () => {
         <p className="text-left my-2 text-xl mb-6">Deposit History</p>
 
         <div className="border grid grid-cols-5 gap-4 text-center text-sm py-2">
-          <p>Ref Id</p>
+          <p>Transaction Id</p>
           <p>Plan Name</p>
           <p>Amount</p>
           <p>Interest</p>

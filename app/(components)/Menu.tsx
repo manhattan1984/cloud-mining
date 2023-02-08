@@ -5,10 +5,10 @@ import { useMenuContext } from "../(context)/MenuContext";
 import links from "../(data)/links";
 
 const MenuLink = ({ link, name }: { link: string; name: string }) => {
-  const { showHomeMenu, setShowHomeMenu } = useMenuContext();
+  // const { showHomeMenu, setShowHomeMenu } = useMenuContext();
   return (
     <Link
-      onClick={() => setShowHomeMenu(!showHomeMenu)}
+      // onClick={() => setShowHomeMenu(!showHomeMenu)}
       className="text-3xl uppercase"
       href={link}
     >
@@ -18,21 +18,24 @@ const MenuLink = ({ link, name }: { link: string; name: string }) => {
 };
 
 const Menu = () => {
-  const { showHomeMenu, setShowHomeMenu } = useMenuContext();
+  // const { showHomeMenu, setShowHomeMenu } = useMenuContext();
 
   return (
     <>
       {/* {showHomeMenu ? ( */}
       <div
-        className={`fixed z-50 ease-in-out duration-300 ${
-          showHomeMenu ? "" : "translate-x-full"
-        } h-screen w-screen bg-neutral-900 text-white flex flex-col justify-between p-4`}
+        className={`fixed z-50 ease-in-out duration-300 
+        ${
+          ""
+          // showHomeMenu ? "" : "translate-x-full"
+        }
+         h-screen w-screen bg-neutral-900 text-white flex flex-col justify-between p-4`}
       >
         <div className="flex justify-between items-center">
           <p className="text-xl">ZipoAid Mining</p>
           <AiOutlineClose
             onClick={() => {
-              setShowHomeMenu(!showHomeMenu);
+              // setShowHomeMenu(!showHomeMenu);
             }}
             className="text-xl cursor-pointer"
           />

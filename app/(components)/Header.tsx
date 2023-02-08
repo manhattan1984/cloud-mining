@@ -4,8 +4,10 @@ import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useMenuContext } from "../(context)/MenuContext";
 import links from "../(data)/links";
+
+// @ts-ignore
 const Header = () => {
-  const { showHomeMenu, setShowHomeMenu } = useMenuContext();
+  // const { showHomeMenu, setShowHomeMenu } = useMenuContext();
   return (
     <nav className="fixed z-40 w-full flex items-center justify-between p-4 bg-neutral-900 text-white top-0">
       <Link href="/">
@@ -18,7 +20,7 @@ const Header = () => {
         <AiOutlineMenu
           className="text-xl cursor-pointer lg:hidden"
           onClick={() => {
-            setShowHomeMenu(!showHomeMenu);
+            // setShowHomeMenu(!showHomeMenu);
           }}
         />
         <div className="lg:flex gap-4 hidden">

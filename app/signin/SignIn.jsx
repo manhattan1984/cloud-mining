@@ -1,12 +1,39 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useSupabase } from "../(context)/supabase-provider";
 
 const SignIn = () => {
   const router = useRouter();
+
+  const { supabase, session } = useSupabase();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleEmailLogin = async () => {
+    const { data: user, error } = await supabase.auth.signInWithPassword({
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    });
+
+    console.log("user", user);
+    console.log("error", error);
+
+    if (!error) {
+      router.push("/dashboard");
+      return;
+    }
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    console.log(session);
+  };
+
   const signIn = () => {
-    router.push("/dashboard");
+    handleEmailLogin();
+    // router.push("/dashboard");
   };
   return (
     <div className="bg-neutral-50 flex items-center h-[90vh]">
@@ -19,6 +46,7 @@ const SignIn = () => {
         <div className="">
           <p className="capitalize mb-2 text-sm">Email address</p>
           <input
+            ref={emailRef}
             placeholder="Enter your email"
             className="border w-full p-2 rounded text-sm"
             type="text"
@@ -28,6 +56,7 @@ const SignIn = () => {
         <div className="">
           <p className="capitalize mb-2 text-sm">Password</p>
           <input
+            ref={passwordRef}
             placeholder="Password"
             className="border w-full p-2 rounded text-sm"
             type="text"
@@ -56,6 +85,7 @@ const SignIn = () => {
           </Link>
         </p>
       </div>
+      <button onClick={handleLogout}>log out</button>
     </div>
   );
 };

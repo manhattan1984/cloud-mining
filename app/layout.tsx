@@ -1,15 +1,27 @@
-"use client";
+// 'use client';
+import "server-only";
+import SupabaseListener from "./(context)/supabase-listener";
+import SupabaseProvider from "./(context)/supabase-provider";
 import Footer from "./(components)/Footer";
 import Header from "./(components)/Header";
 import Menu from "./(components)/Menu";
 import MenuProvider from "./(context)/MenuContext";
 import "./globals.css";
+import { createClient } from "@/utils/supabase-server";
 
-export default function RootLayout({
+export const revalidate = 0;
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = createClient();
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <html lang="en" className="">
       {/*
@@ -18,12 +30,15 @@ export default function RootLayout({
       */}
       <head />
       <body className="">
-        <MenuProvider>
-          <Menu />
+        <SupabaseProvider accessToken={session?.access_token}>
+          <SupabaseListener serverAccessToken={session?.access_token} />
+          {/* <MenuProvider>
+            <Menu /> */}
           <Header />
           <div className="pt-12">{children}</div>
           <Footer />
-        </MenuProvider>
+          {/* </MenuProvider> */}
+        </SupabaseProvider>
       </body>
     </html>
   );

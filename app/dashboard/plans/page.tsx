@@ -1,10 +1,13 @@
+import "server-only";
 import Plans from "@/app/(components)/Plans";
-import plans from "@/app/(data)/plans";
 import React from "react";
+import { createClient } from "@/utils/supabase-server";
 
-const page = () => {
-  // const plans = []
-  return <Plans plans={plans} />;
+const page = async () => {
+  const supabase = createClient();
+  const { data } = await supabase.from("plans").select("*");
+  // @ts-ignore
+  return <Plans plans={data} />;
 };
 
 export default page;
