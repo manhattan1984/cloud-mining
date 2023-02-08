@@ -1,10 +1,10 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createServerContext, useContext, useState, useEffect } from "react";
 import { createClient } from "../../utils/supabase-browser";
 import { useRouter } from "next/navigation";
 
-const Context = createContext();
+const Context = createServerContext();
 
 export default function SupabaseProvider({ children, accessToken }) {
   const [supabase] = useState(() => createClient());

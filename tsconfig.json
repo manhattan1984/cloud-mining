@@ -24,6 +24,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/signup/SignUp.jsx", "app/(context)/MenuContext.jsx", "app/signin/SignIn.jsx"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/signup/SignUp.jsx", "app/(context)/MenuContext.jsx", "app/signin/SignIn.jsx", "app/dashboard/[id]/page.jsx", "app/dashboard/[id]/Dashboard.jsx", "app/dashboard/profile/[id]/Profile.jsx"],
+  "exclude": ["node_modules"],
+  "types": ["react/next"]
 }

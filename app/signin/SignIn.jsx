@@ -20,8 +20,10 @@ const SignIn = () => {
     console.log("user", user);
     console.log("error", error);
 
+    console.log("id", user.user.id)
+
     if (!error) {
-      router.push("/dashboard");
+      router.push(`/dashboard/${user.user.id}`);
       return;
     }
   };

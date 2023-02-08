@@ -1,31 +1,40 @@
 "use client";
 import React from "react";
-import Balance from "./(components)/Balance";
+import Balance from "../(components)/Balance";
 import { MdOutlineFilterNone } from "react-icons/md";
 import { CryptoCurrencyMarket } from "react-ts-tradingview-widgets";
 
-const balances = [
-  {
-    name: "Balance",
-    amount: 0.0,
+const Dashboard = ({
+  userInfo: {
+    first_name,
+    balance,
+    total_investments,
+    total_withdrawals,
+    referral_bonus,
   },
-  {
-    name: "Total Investments",
-    amount: 0.0,
-  },
-  {
-    name: "Total Withdrawals",
-    amount: 0.0,
-  },
-  {
-    name: "Referral Bonus",
-    amount: 0.0,
-  },
-];
+}) => {
+  const balances = [
+    {
+      name: "Balance",
+      amount: balance,
+    },
+    {
+      name: "Total Investments",
+      amount: total_investments,
+    },
+    {
+      name: "Total Withdrawals",
+      amount: total_withdrawals,
+    },
+    {
+      name: "Referral Bonus",
+      amount: referral_bonus,
+    },
+  ];
 
-const Dashboard = () => {
   return (
     <div className="py-4 w-11/12 mx-auto bg-gray-100">
+      <p className="text-xl mb-2">Hello {first_name}</p>
       {/* Amounts */}
       <div className="flex flex-col gap-6 md:flex-row md:flex-wrap">
         {balances.map((balance, index) => (
