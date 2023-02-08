@@ -1,10 +1,10 @@
 import { createClient } from "@/utils/supabase-server";
 import Link from "next/link";
 import React from "react";
-const SignInNavbar = async () => {
+const SignInNavbar = ({ id }: { id: string | undefined }) => {
   const supabase = createClient();
 
-  const id = (await supabase.auth.getUser()).data.user?.id;
+  // const id = (await supabase.auth.getUser()).data.user?.id;
 
   console.log("f id", id);
 
