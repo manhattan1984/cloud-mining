@@ -1,4 +1,5 @@
 "use client";
+import { useSupabase } from "@/app/(context)/supabase-provider";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
@@ -32,10 +33,48 @@ const Payment = ({ amount, setShow }) => {
   );
 };
 
-// @ts-ignore
-const Invest = ({ plan: { name, interest, minimum, maximum } }) => {
+const calculateInterest = (amount: number, interest: number) => {
+  const profit = (interest / 100) * amount;
+  const payout = profit + amount;
+
+  return { profit, payout };
+};
+
+const Invest = ({
+  plan: { name, interest, minimum, maximum },
+  user_id,
+}: {
+  plan: {
+    name: string;
+    interest: number;
+    minimum: number;
+    maximum: number;
+  };
+  user_id: string;
+}) => {
+  const { supabase, session } = useSupabase();
   const [showPayment, setShowPayment] = useState(false);
   const amountRef = useRef(0);
+  const [payout, setPayout] = useState(0);
+  const [profit, setProfit] = useState(0);
+
+  const addTransactionToDatabase = async (type: string, amount: number) => {
+    const { data, error } = await supabase
+      .from("transactions")
+      .insert([{ type, user_id, amount }]);
+
+  };
+
+  const handleAmountChange = () => {
+    const { profit, payout } = calculateInterest(
+      // @ts-ignore
+      +amountRef.current.value,
+      interest
+    );
+
+    setProfit(profit);
+    setPayout(payout);
+  };
   return (
     <div className="flex flex-col justify-center items-center p-4">
       <div className="bg-white p-4 max-w-md mx-auto w-full">
@@ -58,6 +97,7 @@ const Invest = ({ plan: { name, interest, minimum, maximum } }) => {
               ref={amountRef}
               min={minimum}
               max={maximum}
+              onChange={handleAmountChange}
               className="border p-2 rounded w-full"
               type="number"
             />
@@ -67,25 +107,25 @@ const Invest = ({ plan: { name, interest, minimum, maximum } }) => {
             <input
               className="border p-2 rounded w-full"
               disabled
-              type="text"
+              type="number"
               value={interest}
             />
           </div>
           <div className="">
             <p className="text-sm mb-2">Expected Interest ($)</p>
             <input
+              value={profit}
               className="border p-2 rounded w-full"
-              type="text"
+              type="number"
               disabled
-              value={0}
             />
           </div>
           <div className="">
             <p className="text-sm mb-2">Expected Payout ($)</p>
             <input
+              value={payout}
               className="border p-2 rounded w-full"
-              type="text"
-              value={0}
+              type="number"
             />
           </div>
           <div className="">
@@ -100,6 +140,8 @@ const Invest = ({ plan: { name, interest, minimum, maximum } }) => {
           <button
             onClick={() => {
               setShowPayment(!showPayment);
+              // @ts-ignore
+              addTransactionToDatabase("deposit", +amountRef.current.value);
             }}
             className="px-2 text-green-500"
           >

@@ -6,7 +6,6 @@ const SignInNavbar = ({ id }: { id: string | undefined }) => {
 
   // const id = (await supabase.auth.getUser()).data.user?.id;
 
-  console.log("f id", id);
 
   return (
     <nav className="my-4 fixed w-full flex items-start shadow-lg gap-2 p-2 overflow-x-auto text-green-700 text-xs">

@@ -17,25 +17,14 @@ const SignIn = () => {
       password: passwordRef.current.value,
     });
 
-    console.log("user", user);
-    console.log("error", error);
-
-    console.log("id", user.user.id)
-
     if (!error) {
       router.push(`/dashboard/${user.user.id}`);
       return;
     }
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    console.log(session);
-  };
-
   const signIn = () => {
     handleEmailLogin();
-    // router.push("/dashboard");
   };
   return (
     <div className="bg-neutral-50 flex items-center h-[90vh]">
@@ -87,7 +76,6 @@ const SignIn = () => {
           </Link>
         </p>
       </div>
-      <button onClick={handleLogout}>log out</button>
     </div>
   );
 };

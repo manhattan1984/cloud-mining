@@ -32,12 +32,12 @@ export default async function RootLayout({
       <body className="">
         <SupabaseProvider accessToken={session?.access_token}>
           <SupabaseListener serverAccessToken={session?.access_token} />
-          {/* <MenuProvider>
-            <Menu /> */}
+          <MenuProvider>
+            <Menu />
           <Header />
           <div className="pt-12">{children}</div>
           <Footer />
-          {/* </MenuProvider> */}
+          </MenuProvider>
         </SupabaseProvider>
       </body>
     </html>

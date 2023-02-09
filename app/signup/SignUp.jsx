@@ -39,7 +39,6 @@ const SignUp = () => {
   const { supabase, session } = useSupabase();
 
   const handleSignUp = async () => {
-    console.log("handle");
     const stuff = await supabase.auth.signUp({
       email: emailRef.current.value,
       password: passwordRef.current.value,
@@ -54,7 +53,6 @@ const SignUp = () => {
         },
       },
     });
-    console.log("stuff", stuff);
   };
 
   return (

@@ -7,8 +7,6 @@ import { createClient } from "@/utils/supabase-server";
 const page = async ({ params: id }) => {
   const supabase = createClient();
 
-  console.log("signed in", (await supabase.auth.getUser()).data.user.id);
-
   const { data, error } = await supabase
     .from("profiles")
     .select(

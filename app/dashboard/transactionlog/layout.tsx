@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <section className="bg-gray-100">
       {/* Include shared UI here e.g. a header or sidebar */}
-      <TransactionNav />
+      {/* <TransactionNav /> */}
       {children}{" "}
     </section>
   );

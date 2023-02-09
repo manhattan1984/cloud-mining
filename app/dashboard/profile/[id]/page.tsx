@@ -12,8 +12,6 @@ const page = async ({ params: id }) => {
     .eq("id", id.id)
     .single();
 
-  console.log(error);
-
   return <Profile userData={data} />;
 };
 

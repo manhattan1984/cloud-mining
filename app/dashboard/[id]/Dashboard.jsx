@@ -75,7 +75,7 @@ const Dashboard = ({
         </div>
       </div>
 
-      <div className="overflow-x-auto justify-center flex">
+      <div className="overflow-x-auto justify-center flex w-full">
         <CryptoCurrencyMarket />
       </div>
     </div>
