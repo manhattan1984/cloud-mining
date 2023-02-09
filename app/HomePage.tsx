@@ -19,8 +19,9 @@ import { AiTwotoneSecurityScan, AiOutlinePoweroff } from "react-icons/ai";
 
 import { useRouter } from "next/navigation";
 import { TypeAnimation } from "react-type-animation";
-import Notification from "./(components)/Notification";
 import Plans, { PlanType } from "./(components)/Plans";
+import { toast, Toaster } from "react-hot-toast";
+import { useEffect } from "react";
 
 const features = [
   {
@@ -100,9 +101,18 @@ export default function Home({ plans }: { plans: PlanType[] }) {
   const signUp = () => {
     router.push("/signup");
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      toast("Someone from canada just invest $100");
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main>
-      <Notification />
+      <Toaster />
       <div className="bg-neutral-900 text-white flex flex-col gap-2 p-4">
         <div className="flex justify-between">
           <p className="text-xl">Trusted Site</p>

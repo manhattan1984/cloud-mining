@@ -8,6 +8,7 @@ import Menu from "./(components)/Menu";
 import MenuProvider from "./(context)/MenuContext";
 import "./globals.css";
 import { createClient } from "@/utils/supabase-server";
+import { Toaster } from "react-hot-toast";
 
 export const revalidate = 0;
 
@@ -22,6 +23,26 @@ export default async function RootLayout({
     data: { session },
   } = await supabase.auth.getSession();
 
+  const userId = session?.user.id;
+
+  const links = [
+    { name: "home", link: "/" },
+    { name: "sign in", link: "/signin" },
+    { name: "plans", link: "/plans" },
+    { name: "about", link: "/about" },
+  ];
+
+  const signedInLinks = [
+    {
+      name: "home",
+      link: "/",
+    },
+    { name: "dashboard", link: `/dashboard/${userId}` },
+    { name: "about", link: "/about" },
+  ];
+
+  const accessToken = session?.access_token;
+
   return (
     <html lang="en" className="">
       {/*
@@ -33,8 +54,8 @@ export default async function RootLayout({
         <SupabaseProvider accessToken={session?.access_token}>
           <SupabaseListener serverAccessToken={session?.access_token} />
           <MenuProvider>
-            <Menu />
-            <Header token={session?.access_token} />
+            <Menu links={accessToken ? signedInLinks : links} />
+            <Header links={links} token={session?.access_token} />
             <div className="pt-12">{children}</div>
             <Footer />
           </MenuProvider>

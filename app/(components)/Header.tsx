@@ -5,10 +5,9 @@ import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useMenuContext } from "../(context)/MenuContext";
 import { useSupabase } from "../(context)/supabase-provider";
-import links from "../(data)/links";
 
 // @ts-ignore
-const Header = ({ token }) => {
+const Header = ({ token, links }) => {
   const { supabase } = useSupabase();
   const { showHomeMenu, setShowHomeMenu } = useMenuContext();
   const router = useRouter();
@@ -40,7 +39,7 @@ const Header = ({ token }) => {
         />
         <div className="lg:flex gap-4 hidden">
           {links.map(
-            ({ name, link }: { name: string; link: string }, index) => (
+            ({ name, link }: { name: string; link: string }, index: number) => (
               <Link key={index} href={link} className="uppercase">
                 {name}
               </Link>

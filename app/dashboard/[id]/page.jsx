@@ -39,7 +39,6 @@ const page = async ({ params: id }) => {
       .eq("user_id", id.id)
       .limit(3);
 
-    console.log(transactions);
     return transactions;
   };
 

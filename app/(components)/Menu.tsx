@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useMenuContext } from "../(context)/MenuContext";
-import links from "../(data)/links";
 
 const MenuLink = ({ link, name }: { link: string; name: string }) => {
   const { showHomeMenu, setShowHomeMenu } = useMenuContext();
@@ -18,7 +17,8 @@ const MenuLink = ({ link, name }: { link: string; name: string }) => {
   );
 };
 
-const Menu = () => {
+// @ts-ignore
+const Menu = ({ links }) => {
   const { showHomeMenu, setShowHomeMenu } = useMenuContext();
 
   return (
@@ -38,6 +38,7 @@ const Menu = () => {
           />
         </div>
         <div className="p-4 flex flex-col gap-3 items-start">
+          {/* @ts-ignore */}
           {links.map((link, index) => (
             <MenuLink key={index} {...link} />
           ))}
