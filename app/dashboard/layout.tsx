@@ -2,6 +2,7 @@ import "server-only";
 import { createClient } from "@/utils/supabase-server";
 import React from "react";
 import SignInNavbar from "./(components)/SignInNavbar";
+import { redirect } from "next/navigation";
 
 export const revalidate = 0;
 
@@ -12,6 +13,14 @@ export default async function DashboardLayout({
 }) {
   const supabase = createClient();
   const id = (await supabase.auth.getUser()).data.user?.id;
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session?.access_token) {
+    redirect("/signin");
+  }
+
   return (
     <section className="bg-gray-100">
       {/* Include shared UI here e.g. a header or sidebar */}

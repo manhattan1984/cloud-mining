@@ -8,11 +8,12 @@ export default function SupabaseListener({ serverAccessToken }) {
   const { supabase } = useSupabase();
   const router = useRouter();
 
-(() => {
+  () => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
       if (session?.access_token !== serverAccessToken) {
+        // router.push("/");
         router.refresh();
       }
     });
@@ -20,7 +21,8 @@ export default function SupabaseListener({ serverAccessToken }) {
     return () => {
       subscription.unsubscribe();
     };
-  }, [serverAccessToken, router, supabase]);
+  },
+    [serverAccessToken, router, supabase];
 
   return null;
 }

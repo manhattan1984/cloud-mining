@@ -61,8 +61,7 @@ const Invest = ({
   const addTransactionToDatabase = async (type: string, amount: number) => {
     const { data, error } = await supabase
       .from("transactions")
-      .insert([{ type, user_id, amount }]);
-
+      .insert([{ plan: name, user_id, amount, type: "deposit" }]);
   };
 
   const handleAmountChange = () => {

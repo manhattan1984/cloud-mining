@@ -1,22 +1,37 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useMenuContext } from "../(context)/MenuContext";
+import { useSupabase } from "../(context)/supabase-provider";
 import links from "../(data)/links";
 
 // @ts-ignore
-const Header = () => {
+const Header = ({ token }) => {
+  const { supabase } = useSupabase();
   const { showHomeMenu, setShowHomeMenu } = useMenuContext();
+  const router = useRouter();
   return (
     <nav className="fixed z-40 w-full flex items-center justify-between p-4 bg-neutral-900 text-white top-0">
       <Link href="/">
         <p className="capitalize text-xl font-bold">zipoAid mining</p>
       </Link>
       <div className="flex gap-4 items-center">
-        <Link href="/signup">
-          <p className="text-green-700 uppercase">get started</p>
-        </Link>
+        {token ? (
+          <button
+            onClick={async () => {
+              await supabase.auth.signOut();
+              router.push("/");
+            }}
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link href="/signup">
+            <p className="text-green-700 uppercase">get started</p>
+          </Link>
+        )}
         <AiOutlineMenu
           className="text-xl cursor-pointer lg:hidden"
           onClick={() => {

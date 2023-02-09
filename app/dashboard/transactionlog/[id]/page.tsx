@@ -8,7 +8,8 @@ const page = async ({ params: id }: { params: { id: string } }) => {
   const getAllTransactions = async () => {
     let { data: transactions, error } = await supabase
       .from("transactions")
-      .select("*");
+      .select("*")
+      .eq("user_id", id.id);
     return transactions;
   };
 
