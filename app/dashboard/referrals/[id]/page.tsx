@@ -10,9 +10,6 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
     .select("first_name, last_name, id, email")
     .eq("referral_id", id);
 
-  console.log("data", data);
-  console.log("error", error);
-
   return <ReferralsPage referrals={data} />;
 };
 

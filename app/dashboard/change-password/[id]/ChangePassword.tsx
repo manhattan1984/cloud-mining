@@ -15,12 +15,10 @@ const ChangePassword = () => {
 
     if (error) {
       toast.error(error);
-      console.log("error", error);
       return;
     }
 
     toast.success("Password Change Successful");
-    console.log("user", user);
   };
   return (
     <>

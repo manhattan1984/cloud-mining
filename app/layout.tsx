@@ -45,7 +45,7 @@ export default async function RootLayout({
 
   const links = accessToken ? signedInLinks : signedOutLinks;
   return (
-    <html lang="en" className="">
+    <html lang="en">
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head

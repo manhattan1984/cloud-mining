@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
@@ -11,7 +12,10 @@ const Footer = () => {
         <p className="text-xl mb-1">About Zipo Aid Mining</p>
         <Divider />
         <div className="">
-          <p className="text-600 font-light text-xl my-4">ZipoAidMining</p>
+          <div className="flex w-full">
+            <Image alt="logo" src="/transparent.png" height={40} width={40} />
+            <p className="text-600 font-light text-xl my-4">ZipoAid Mining</p>
+          </div>
           <p>
             Investment strategy is based on well researched Index Strategy and
             invests exclusively into top 20 underlying crypto assets with the
@@ -31,7 +35,9 @@ const Footer = () => {
           </div>
           <div className="flex gap-2 items-center">
             <TiLocation className="text-xl text-white" />
-            <p className="text-sm">1900 Fifth Avenue North Birmingham, Alabama, USA</p>
+            <p className="text-sm">
+              1900 Fifth Avenue North Birmingham, Alabama, USA
+            </p>
           </div>
         </div>
       </div>

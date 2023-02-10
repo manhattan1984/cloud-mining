@@ -8,7 +8,6 @@ import { useSupabase } from "../../(context)/supabase-provider";
 const SignUp = ({ referral_id }) => {
   const router = useRouter();
   const handleSubmit = (event) => {
-    // console.log(event);
     // event.preventDefault();
     // handleSignUp();
   };
@@ -37,8 +36,6 @@ const SignUp = ({ referral_id }) => {
     setReferralId(e.target.value);
   };
 
-  console.log(referralId);
-
   const { supabase, session } = useSupabase();
 
   const handleSignUp = async () => {
@@ -61,13 +58,11 @@ const SignUp = ({ referral_id }) => {
     });
 
     if (user) {
-      console.log("user", user);
       toast.success("Sign Up Successful, Check email for verification");
       router.push("/signin");
       return;
     }
     toast.error(`Sign Up Error, ${error}`);
-    console.log("err", error);
   };
 
   return (

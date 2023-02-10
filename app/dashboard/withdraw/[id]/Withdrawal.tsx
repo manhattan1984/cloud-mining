@@ -15,13 +15,11 @@ const Withdrawal = ({ user_id }: { user_id: string }) => {
 
     if (error) {
       toast.error(error);
-      console.log("error", error);
       return;
     }
 
     toast.success("Processing Your Withdrawal");
 
-    console.log("data", data);
   };
   return (
     <>

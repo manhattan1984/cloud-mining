@@ -126,7 +126,6 @@ export default function Home({ plans }: { plans: PlanType[] }) {
   useEffect(() => {
     const interval = setInterval(() => {
       const country = countries[Math.floor(Math.random() * countries.length)];
-      console.log(country);
       toast(`Someone from ${country} just invested $${randomAmount()}`);
     }, 10000);
 

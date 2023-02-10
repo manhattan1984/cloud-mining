@@ -25,6 +25,12 @@ const Profile = ({
   const [perfectMoney, setPerfectMoney] = useState(perfectmoney_wallet);
   const [usdt, setUsdt] = useState(usdt_wallet);
 
+
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "evilworld.com:3000"
+      : "zipoaidmining.vercel.app";
+
   const handleUpdateWallets = async () => {
     const { data, error } = await supabase
       .from("profiles")
@@ -39,12 +45,11 @@ const Profile = ({
 
     if (error) {
       toast.error("Failed To Update Wallets");
-      console.log(error);
       return;
     }
-    console.log(data);
     toast.success("Wallets updated successfully");
   };
+  const signUpLink = `${url}/signup/${id}`;
   return (
     <>
       <Toaster />
@@ -132,8 +137,12 @@ const Profile = ({
             <div className="">
               <p className="text-sm">Referral Link (Click to copy)</p>
               <input
+                onClick={() => {
+                  navigator.clipboard.writeText(signUpLink);
+                  toast.success("Copied To Clipboard");
+                }}
                 type="text"
-                value={`evilworld.com:3000/signup/${id}`}
+                value={signUpLink}
                 className="border p-1 my-2 w-full text-xs"
               />
             </div>
