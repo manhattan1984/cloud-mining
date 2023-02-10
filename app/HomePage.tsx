@@ -96,6 +96,27 @@ const coins = [
   "ETC",
   2000,
 ];
+
+const countries = [
+  "Canada",
+  "USA",
+  "England",
+  "Spain",
+  "South Africa",
+  "India",
+  "Dubai",
+  "Russia",
+  "Persia",
+  "Australia",
+];
+
+const min = 50;
+const max = 10_000;
+
+function randomAmount() {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 export default function Home({ plans }: { plans: PlanType[] }) {
   const router = useRouter();
   const signUp = () => {
@@ -104,7 +125,9 @@ export default function Home({ plans }: { plans: PlanType[] }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      toast("Someone from canada just invested $100");
+      const country = countries[Math.floor(Math.random() * countries.length)];
+      console.log(country);
+      toast(`Someone from ${country} just invested $${randomAmount()}`);
     }, 10000);
 
     return () => clearInterval(interval);
@@ -113,7 +136,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
   return (
     <main>
       <Toaster />
-      <div className="bg-neutral-900 text-white flex flex-col gap-2 p-4">
+      <div className="bg-neutral-900 text-white flex flex-col gap-2 mt-2 p-4">
         <div className="flex justify-between">
           <p className="text-xl">Trusted Site</p>
         </div>
@@ -212,12 +235,12 @@ export default function Home({ plans }: { plans: PlanType[] }) {
 
         <div className="flex flex-col gap-4 md:flex-row items-center justify-center text-center">
           <div className="">
-            <p className="text-4xl font-bold text-green-400 mb-1 mt-3">1322</p>
+            <p className="text-4xl font-bold text-green-400 mb-1 mt-3">1,322</p>
             <p>Happy Clients</p>
           </div>
           <div className="">
             <p className="text-4xl font-bold text-green-400 mb-1 mt-3">
-              513532
+              513,532
             </p>
             <p>Payouts</p>
           </div>
@@ -227,9 +250,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           </div>
         </div>
       </div>
-      <div className="bg-neutral-100 h-full">
-        {/* <Calculator /> */}
-      </div>
+      <div className="bg-neutral-100 h-full">{/* <Calculator /> */}</div>
       <div className="w-full mb-8 bg-neutral-900 text-white py-8">
         <p className="mb-8 text-2xl uppercase text-center">Why choose us?</p>
         <div className="flex flex-col md:flex-row md:flex-wrap gap-4 w-4/5 mx-auto justify-center">

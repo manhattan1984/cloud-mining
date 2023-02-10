@@ -8,7 +8,7 @@ const SignInNavbar = ({ id }: { id: string | undefined }) => {
 
 
   return (
-    <nav className="my-4 fixed w-full flex items-start shadow-lg gap-2 p-2 overflow-x-auto text-green-700 text-xs">
+    <nav className="mb-4 mt-6 fixed w-full flex items-start shadow-lg gap-2 p-2 overflow-x-auto text-green-700 text-xs">
       <Link className="" href={`/dashboard/${id}`}>
         Dashboard
       </Link>

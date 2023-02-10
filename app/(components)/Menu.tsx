@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
@@ -29,7 +30,10 @@ const Menu = ({ links }) => {
          h-screen w-screen bg-neutral-900 text-white flex flex-col justify-between p-4`}
       >
         <div className="flex justify-between items-center">
-          <p className="text-xl">ZipoAid Mining</p>
+          <div className="flex items-center">
+            <Image alt="logo" src="/transparent.png" width={50} height={50} />
+            <p className="text-xl">ZipoAid Mining</p>
+          </div>
           <AiOutlineClose
             onClick={() => {
               setShowHomeMenu(!showHomeMenu);

@@ -146,7 +146,7 @@ const SignUp = ({ referral_id }) => {
               type="password"
             />
           </div>
-          <div className="">
+          {/* <div className="">
             <label className="capitalize mb-2 text-sm">Confirm Password</label>
             <input
               required
@@ -155,7 +155,7 @@ const SignUp = ({ referral_id }) => {
               className="border w-full p-2 rounded text-sm"
               type="password"
             />
-          </div>
+          </div> */}
           <div className="flex my-4 items-center gap-2">
             <input
               className="border rounded accent-green-600"

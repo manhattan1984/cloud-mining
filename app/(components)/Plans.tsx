@@ -25,8 +25,8 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
         <div className="flex justify-between">
           <p>Maximum Funding:</p>
           <p>
-            {maximumType === "string" ? "" : "$"}
-            {maximum}
+            {maximumType ? "$" : ""}
+            {maximum || "Unlimited"}
           </p>
         </div>
         <div className="flex justify-between">

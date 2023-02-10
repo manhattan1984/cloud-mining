@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -14,7 +15,10 @@ const Header = ({ token, links }) => {
   return (
     <nav className="fixed z-40 w-full flex items-center justify-between p-4 bg-neutral-900 text-white top-0">
       <Link href="/">
-        <p className="capitalize text-xl font-bold">zipoAid mining</p>
+        <div className="flex items-center">
+          <Image alt="Logo" src="/transparent.png" height={40} width={40} />
+          <p className="capitalize text-xl font-bold">ZipoAid mining</p>
+        </div>
       </Link>
       <div className="flex gap-4 items-center">
         {token ? (
