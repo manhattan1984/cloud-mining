@@ -30,20 +30,20 @@ const ChangePassword = () => {
           <p className="text-xl">Change Password</p>
           <p className="text-xs my-2">Don't share password with anyone</p>
 
-          <div className="">
+          {/* <div className="">
             <p className="font-light text-sm">Old Password</p>
             <input
-              type="text"
+              type="password"
               placeholder="Old Password"
               className="border p-1 my-2 w-full"
             />
-          </div>
+          </div> */}
           <div className="">
             <p className="font-light text-sm">New Password</p>
             <input
               //   @ts-ignore
               ref={newPasswordRef}
-              type="text"
+              type="password"
               placeholder="New Password"
               className="border p-1 my-2 w-full"
             />

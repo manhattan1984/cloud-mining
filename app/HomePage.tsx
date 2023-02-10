@@ -104,7 +104,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      toast("Someone from canada just invest $100");
+      toast("Someone from canada just invested $100");
     }, 10000);
 
     return () => clearInterval(interval);
@@ -228,7 +228,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
         </div>
       </div>
       <div className="bg-neutral-100 h-full">
-        <Calculator />
+        {/* <Calculator /> */}
       </div>
       <div className="w-full mb-8 bg-neutral-900 text-white py-8">
         <p className="mb-8 text-2xl uppercase text-center">Why choose us?</p>

@@ -25,7 +25,7 @@ export default async function RootLayout({
 
   const userId = session?.user.id;
 
-  const links = [
+  const signedOutLinks = [
     { name: "home", link: "/" },
     { name: "sign in", link: "/signin" },
     { name: "plans", link: "/plans" },
@@ -43,6 +43,7 @@ export default async function RootLayout({
 
   const accessToken = session?.access_token;
 
+  const links = accessToken ? signedInLinks : signedOutLinks;
   return (
     <html lang="en" className="">
       {/*
@@ -54,7 +55,7 @@ export default async function RootLayout({
         <SupabaseProvider accessToken={session?.access_token}>
           <SupabaseListener serverAccessToken={session?.access_token} />
           <MenuProvider>
-            <Menu links={accessToken ? signedInLinks : links} />
+            <Menu links={links} />
             <Header links={links} token={session?.access_token} />
             <div className="pt-12">{children}</div>
             <Footer />

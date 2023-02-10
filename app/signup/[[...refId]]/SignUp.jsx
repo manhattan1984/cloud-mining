@@ -1,43 +1,43 @@
 "use client";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import { toast, Toaster } from "react-hot-toast";
-import { useSupabase } from "../(context)/supabase-provider";
-const SignUp = () => {
+import { useSupabase } from "../../(context)/supabase-provider";
+const SignUp = ({ referral_id }) => {
   const router = useRouter();
-  const recaptchaRef = useRef();
-
   const handleSubmit = (event) => {
+    // console.log(event);
     // event.preventDefault();
-    // // Execute the reCAPTCHA when the form is submitted
-    // recaptchaRef.current.execute();
-
-    handleSignUp();
+    // handleSignUp();
   };
 
-  const onReCAPTCHAChange = (captchaCode) => {
-    // If the reCAPTCHA code is null or undefined indicating that
-    // the reCAPTCHA was expired then return early
-    if (!captchaCode) {
-      return;
-    }
-    // Else reCAPTCHA was executed successfully so proceed with the
-    // alert
-    alert(`Hey, ${email}`);
-    // Reset the reCAPTCHA so that it can be executed again if user
-    // submits another email.
-    recaptchaRef.current.reset();
+  const [token, setToken] = useState(null);
+  const captchaRef = useRef(null);
+
+  const onLoad = () => {
+    captchaRef.current.execute();
   };
+
+  useEffect(() => {
+    if (token) console.log(`hCaptcha Token: ${token}`);
+  }, [token]);
 
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const phoneNumberRef = useRef();
   const emailRef = useRef();
-  const referralRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
+
+  const [referralId, setReferralId] = useState(referral_id);
+
+  const handleReferralId = (e) => {
+    setReferralId(e.target.value);
+  };
+
+  console.log(referralId);
 
   const { supabase, session } = useSupabase();
 
@@ -54,7 +54,7 @@ const SignUp = () => {
           last_name: lastNameRef.current.value,
           phone_number: phoneNumberRef.current.value,
           email: emailRef.current.value,
-          referral_id: referralRef.current.value,
+          referral_id: referralId,
           password: passwordRef.current.value,
         },
       },
@@ -83,8 +83,10 @@ const SignUp = () => {
           </div>
           <div className="flex gap-2">
             <div className="w-full">
-              <p className="capitalize mb-2 text-sm">first name</p>
+              <label className="capitalize mb-2 text-sm">first name</label>
               <input
+                id="firstname"
+                required
                 ref={firstNameRef}
                 placeholder="First name"
                 className="w-full border p-2 rounded text-sm"
@@ -92,8 +94,9 @@ const SignUp = () => {
               />
             </div>
             <div className="w-full">
-              <p className="capitalize mb-2 text-sm">last name</p>
+              <label className="capitalize mb-2 text-sm">last name</label>
               <input
+                required
                 ref={lastNameRef}
                 placeholder="Last name"
                 className="w-full border p-2 rounded text-sm"
@@ -102,8 +105,9 @@ const SignUp = () => {
             </div>
           </div>
           <div className="">
-            <p className="capitalize mb-2 text-sm">phone no.</p>
+            <label className="capitalize mb-2 text-sm">phone no.</label>
             <input
+              required
               ref={phoneNumberRef}
               placeholder="Enter your Phone No."
               className="border w-full p-2 rounded text-sm"
@@ -111,8 +115,9 @@ const SignUp = () => {
             />
           </div>
           <div className="">
-            <p className="capitalize mb-2 text-sm">Email address</p>
+            <label className="capitalize mb-2 text-sm">Email address</label>
             <input
+              required
               ref={emailRef}
               placeholder="Enter your email"
               className="border w-full p-2 rounded text-sm"
@@ -120,30 +125,35 @@ const SignUp = () => {
             />
           </div>
           <div className="">
-            <p className="capitalize mb-2 text-sm">Referral Id (Optional)</p>
+            <label className="capitalize mb-2 text-sm">
+              Referral Id (Optional)
+            </label>
             <input
-              ref={referralRef}
+              value={referralId}
+              onChange={handleReferralId}
               placeholder="Referral Id (Optional)"
               className="border w-full p-2 rounded text-sm"
               type="text"
             />
           </div>
           <div className="">
-            <p className="capitalize mb-2 text-sm">Password</p>
+            <label className="capitalize mb-2 text-sm">Password</label>
             <input
+              required
               ref={passwordRef}
               placeholder="Password"
               className="border w-full p-2 rounded text-sm"
-              type="text"
+              type="password"
             />
           </div>
           <div className="">
-            <p className="capitalize mb-2 text-sm">Confirm Password</p>
+            <label className="capitalize mb-2 text-sm">Confirm Password</label>
             <input
+              required
               ref={confirmPasswordRef}
               placeholder="Confirm password"
               className="border w-full p-2 rounded text-sm"
-              type="text"
+              type="password"
             />
           </div>
           <div className="flex my-4 items-center gap-2">
@@ -155,13 +165,16 @@ const SignUp = () => {
             />
             <p className="text-xs">I agree to Zipo Aid Mining terms of use</p>
           </div>
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            size="invisible"
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            onChange={onReCAPTCHAChange}
-          />
+          <div className="">
+            <HCaptcha
+              sitekey="ef9e404a-f816-4451-a677-d15493f17fc5"
+              onLoad={onLoad}
+              onVerify={setToken}
+              ref={captchaRef}
+            />
+          </div>
           <button
+            type="submit"
             onClick={handleSignUp}
             className="bg-green-600 text-white p-2"
           >

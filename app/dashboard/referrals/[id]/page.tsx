@@ -1,23 +1,19 @@
+import { createClient } from "@/utils/supabase-server";
 import React from "react";
+import ReferralsPage from "./ReferralsPage";
 
-const page = () => {
-  return (
-    <div className="flex justify-center items-center">
-      <div className="bg-white rounded p-4 my-4 text-center w-full m-4">
-        <p className="text-left my-2 text-xl mb-6">Referrals</p>
+const page = async ({ params: { id } }: { params: { id: string } }) => {
+  const supabase = createClient();
 
-        <div className="border grid grid-cols-4 gap-4 text-center text-sm py-2">
-          <p>User Id</p>
-          <p>First Name</p>
-          <p>Last Name</p>
-          <p>Email</p>
-        </div>
-        <div className="border p-8">
-          <p>No Referrals</p>
-        </div>
-      </div>
-    </div>
-  );
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("first_name, last_name, id, email")
+    .eq("referral_id", id);
+
+  console.log("data", data);
+  console.log("error", error);
+
+  return <ReferralsPage referrals={data} />;
 };
 
 export default page;

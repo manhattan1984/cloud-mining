@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.4.4",
     "@next/font": "13.1.6",
     "@supabase/auth-helpers-nextjs": "^0.5.4",
     "@supabase/supabase-js": "^2.7.1",
@@ -21,7 +22,6 @@
     "next-recaptcha-v3": "^1.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-google-recaptcha": "^2.1.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
     "react-ts-tradingview-widgets": "^1.0.14",

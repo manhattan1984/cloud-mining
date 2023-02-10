@@ -58,14 +58,14 @@ const SignIn = () => {
               ref={passwordRef}
               placeholder="Password"
               className="border w-full p-2 rounded text-sm"
-              type="text"
+              type="password"
             />
           </div>
 
           <div className="w-full flex">
             <Link
               className="text-green-600 text-xs w-full text-right"
-              href="/forgotpassword"
+              href="/forgot-password"
             >
               Forgot Your Password?
             </Link>
