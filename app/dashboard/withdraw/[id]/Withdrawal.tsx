@@ -3,7 +3,15 @@ import { useSupabase } from "@/app/(context)/supabase-provider";
 import React, { useRef } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
-const Withdrawal = ({ user_id }: { user_id: string }) => {
+const Withdrawal = ({
+  user_id,
+  wallets,
+}: {
+  user_id: string;
+  wallets: {
+    name: string;
+  }[];
+}) => {
   const { supabase } = useSupabase();
 
   const amountRef = useRef(0);
@@ -19,7 +27,6 @@ const Withdrawal = ({ user_id }: { user_id: string }) => {
     }
 
     toast.success("Processing Your Withdrawal");
-
   };
   return (
     <>
@@ -40,7 +47,11 @@ const Withdrawal = ({ user_id }: { user_id: string }) => {
           <div className="">
             <p className="font-light text-sm">Withdrawal Type</p>
             <select className="my-2 w-full" name="" id="">
-              <option value="bitcoin">Bitcoin</option>
+              {wallets.map(({ name }) => (
+                <option value={name} key={name}>
+                  {name}
+                </option>
+              ))}
             </select>
           </div>
           <p className="text-xs">

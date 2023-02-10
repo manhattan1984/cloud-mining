@@ -6,7 +6,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { AiOutlineClose } from "react-icons/ai";
 
 // @ts-ignore
-const Payment = ({ amount, setShow }) => {
+const Payment = ({ amount, setShow, name, address }) => {
   return (
     <div className="flex flex-col justify-center items-center p-4">
       <div className="bg-white p-4 max-w-md w-full">
@@ -20,13 +20,13 @@ const Payment = ({ amount, setShow }) => {
           />
         </div>
         <div className="mt-2">
-          <p className="text-xs">Transaction Id: 4pPyWTKBEU7</p>
+          {/* <p className="text-xs">Transaction Id: {crypto.randomUUID()}</p> */}
           <p className="my-1">
             Kindly pay <span className="font-bold">{amount.value}</span> to this
             Address.
           </p>
           <p>
-            Bitcoin Wallet: <span className="font-bold">xxxxxx</span>{" "}
+            {name} Wallet: <span className="font-bold">{address}</span>{" "}
           </p>
         </div>
       </div>
@@ -44,6 +44,7 @@ const calculateInterest = (amount: number, interest: number) => {
 const Invest = ({
   plan: { name, interest, minimum, maximum },
   user_id,
+  wallets,
 }: {
   plan: {
     name: string;
@@ -52,10 +53,16 @@ const Invest = ({
     maximum: number;
   };
   user_id: string;
+  wallets: {
+    name: string;
+    address: string;
+  }[];
 }) => {
   const { supabase, session } = useSupabase();
   const [showPayment, setShowPayment] = useState(false);
   const amountRef = useRef(0);
+  const walletRef = useRef();
+  const [selectedWallet, setSelectedWallet] = useState(wallets[0]);
   const [payout, setPayout] = useState(0);
   const [profit, setProfit] = useState(0);
 
@@ -63,7 +70,6 @@ const Invest = ({
     const { data, error } = await supabase
       .from("transactions")
       .insert([{ plan: name, user_id, amount, type: "deposit" }]);
-
     if (error) {
       toast.error(`Error, ${error}`);
       return;
@@ -81,6 +87,7 @@ const Invest = ({
     setProfit(profit);
     setPayout(payout);
   };
+
   return (
     <>
       <Toaster />
@@ -101,6 +108,7 @@ const Invest = ({
             <div className="">
               <p className="text-sm mb-2">Amount To Invest</p>
               <input
+                required
                 // @ts-ignore
                 ref={amountRef}
                 min={minimum}
@@ -138,8 +146,25 @@ const Invest = ({
             </div>
             <div className="">
               <p className="text-sm mb-2">Deposit Type</p>
-              <select className="w-full p-2">
-                <option value="bitcoin">Bitcoin</option>
+              <select
+                onChange={() => {
+                  setSelectedWallet(
+                    // @ts-ignore
+                    () =>
+                      wallets.find(
+                        // @ts-ignore
+                        ({ name }) => name === walletRef.current.value
+                      )
+                  );
+                  setShowPayment(false);
+                }}
+                // @ts-ignore
+                ref={walletRef}
+                className="w-full p-2"
+              >
+                {wallets.map(({ name }) => (
+                  <option value={name}>{name}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -147,6 +172,20 @@ const Invest = ({
           <div className="flex gap-4 py-4">
             <button
               onClick={() => {
+                // @ts-ignore
+                const amountValue = amountRef.current.value;
+                if (
+                  !amountValue ||
+                  amountValue < minimum ||
+                  amountValue > maximum
+                ) {
+                  toast.error(
+                    `Enter amount greater than ${minimum - 1} or less than ${
+                      maximum - 1
+                    }`
+                  );
+                  return;
+                }
                 setShowPayment(!showPayment);
                 // @ts-ignore
                 addTransactionToDatabase("deposit", +amountRef.current.value);
@@ -161,7 +200,12 @@ const Invest = ({
           </div>
         </div>
         <div className={`${showPayment ? "block" : "hidden"} w-full`}>
-          <Payment amount={amountRef.current} setShow={setShowPayment} />
+          <Payment
+            amount={amountRef.current}
+            setShow={setShowPayment}
+            name={selectedWallet.name}
+            address={selectedWallet.address}
+          />
         </div>
       </div>
     </>

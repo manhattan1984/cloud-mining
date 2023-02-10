@@ -23,13 +23,30 @@ const page = async ({ params: name }) => {
     return data;
   }
 
+  async function getWallets() {
+    let { data: wallets, error } = await supabase
+      .from("wallets")
+      .select("name, address");
+
+    return wallets;
+  }
+
   const userId = getCurrentSignedInUser();
   const planData = getPlan();
+  const walletsData = getWallets();
 
-  const [id, plan] = await Promise.all([userId, planData]);
+  const [id, plan, wallets] = await Promise.all([
+    userId,
+    planData,
+    walletsData,
+  ]);
 
-  // @ts-ignore
-  return plan ? <Invest user_id={id} plan={plan} /> : <p>error</p>;
+  return plan ? (
+    // @ts-ignore
+    <Invest wallets={wallets} user_id={id} plan={plan} />
+  ) : (
+    <p>error</p>
+  );
 };
 
 export default page;
