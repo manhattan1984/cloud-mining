@@ -9,6 +9,7 @@ import MenuProvider from "./(context)/MenuContext";
 import "./globals.css";
 import { createClient } from "@/utils/supabase-server";
 import { BsFillCheckSquareFill } from "react-icons/bs";
+import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -61,12 +62,14 @@ export default async function RootLayout({
             <Footer />
           </MenuProvider>
         </SupabaseProvider>
-        <div className="fixed flex gap-1 bottom-0 right-2 bg-white p-1">
-          <BsFillCheckSquareFill className="text-green-400" />
-          <p className="text-xs font-bold">
-            Trusted<span className="text-green-400">Site</span>
-          </p>
-        </div>
+        <Link passHref href={"https://www.trustedsite.com"}>
+          <div className="fixed flex gap-1 bottom-0 right-2 bg-white p-1">
+            <BsFillCheckSquareFill className="text-green-400" />
+            <p className="text-xs font-bold">
+              Trusted<span className="text-green-400">Site</span>
+            </p>
+          </div>
+        </Link>
       </body>
     </html>
   );
