@@ -29,7 +29,7 @@ const Profile = ({
   const url =
     process.env.NODE_ENV === "development"
       ? "evilworld.com:3000"
-      : "zipoaidmining.vercel.app";
+      : "www.zipoaidmining.com";
 
   const handleUpdateWallets = async () => {
     const { data, error } = await supabase
