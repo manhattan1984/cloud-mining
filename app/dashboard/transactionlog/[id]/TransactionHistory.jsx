@@ -3,7 +3,7 @@ import Transaction from "../../(components)/Transaction";
 
 const TransactionHistory = ({ transactions }) => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-screen">
       <div className="bg-white rounded p-4 my-4 text-center w-full m-4">
         <p className="text-left my-2 text-xl mb-6">Transaction History</p>
 

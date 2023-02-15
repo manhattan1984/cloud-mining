@@ -1,12 +1,13 @@
 "use client";
 import { useSupabase } from "@/app/(context)/supabase-provider";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { AiOutlineClose } from "react-icons/ai";
 
 // @ts-ignore
-const Payment = ({ amount, setShow, name, address }) => {
+const Payment = ({ amount, setShow, name, address, qr_code_url }) => {
   return (
     <div className="flex flex-col justify-center items-center p-4">
       <div className="bg-white p-4 max-w-md w-full">
@@ -25,6 +26,11 @@ const Payment = ({ amount, setShow, name, address }) => {
             Kindly pay <span className="font-bold">{amount.value}</span> to this
             Address.
           </p>
+          <div className="flex w-full justify-center my-3">
+            <div className="relative h-28 w-28">
+              <Image fill={true} src={qr_code_url} alt={name} />
+            </div>
+          </div>
           <p>
             {name} Wallet: <span className="font-bold">{address}</span>{" "}
           </p>
@@ -56,6 +62,7 @@ const Invest = ({
   wallets: {
     name: string;
     address: string;
+    qr_code_url: string;
   }[];
 }) => {
   const { supabase, session } = useSupabase();
@@ -181,7 +188,7 @@ const Invest = ({
                 ) {
                   toast.error(
                     `Enter amount greater than ${minimum - 1} or less than ${
-                      maximum - 1
+                      maximum + 1
                     }`
                   );
                   return;
@@ -205,6 +212,7 @@ const Invest = ({
             setShow={setShowPayment}
             name={selectedWallet.name}
             address={selectedWallet.address}
+            qr_code_url={selectedWallet.qr_code_url}
           />
         </div>
       </div>

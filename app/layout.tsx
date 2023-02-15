@@ -1,4 +1,3 @@
-// 'use client';
 import "server-only";
 import SupabaseListener from "./(context)/supabase-listener";
 import SupabaseProvider from "./(context)/supabase-provider";

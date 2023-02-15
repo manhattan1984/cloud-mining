@@ -28,9 +28,9 @@ const SignUp = ({ referral_id }) => {
   const phoneNumberRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
 
   const [referralId, setReferralId] = useState(referral_id);
+  const [loading, setLoading] = useState(false);
 
   const handleReferralId = (e) => {
     setReferralId(e.target.value);
@@ -39,30 +39,47 @@ const SignUp = ({ referral_id }) => {
   const { supabase, session } = useSupabase();
 
   const handleSignUp = async () => {
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const first_name = firstNameRef.current.value;
+    const last_name = lastNameRef.current.value;
+    const phone_number = phoneNumberRef.current.value;
+
+    if (!(email && password && first_name && last_name && phone_number)) {
+      toast.error("Please Fill The Form Completely");
+      return;
+    }
+    setLoading(true);
     const {
       data: { user },
       error,
     } = await supabase.auth.signUp({
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      email,
+      password,
       options: {
         data: {
-          first_name: firstNameRef.current.value,
-          last_name: lastNameRef.current.value,
-          phone_number: phoneNumberRef.current.value,
-          email: emailRef.current.value,
+          first_name,
+          last_name,
+          phone_number,
+          email,
           referral_id: referralId,
-          password: passwordRef.current.value,
+          password,
         },
       },
     });
 
     if (user) {
-      toast.success("Sign Up Successful, Check email for verification");
-      router.push("/signin");
+      toast.success("Sign Up Successful, Check email for verification", {
+        duration: 4000,
+      });
+      setTimeout(() => {
+        console.log("2023");
+        router.push("/signin");
+      }, 5000);
       return;
     }
     toast.error(`Sign Up Error, ${error}`);
+    setLoading(false);
   };
 
   return (
@@ -170,6 +187,7 @@ const SignUp = ({ referral_id }) => {
           </div>
           <button
             type="submit"
+            disabled={loading}
             onClick={handleSignUp}
             className="bg-green-600 text-white p-2"
           >

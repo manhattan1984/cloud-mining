@@ -4,7 +4,7 @@ import Referral from "../../(components)/Referral";
 
 const ReferralsPage = ({ referrals }) => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-[80vh]">
       <div className="bg-white rounded p-4 my-4 text-center w-full m-4">
         <p className="text-left my-2 text-xl mb-6">Referrals</p>
 

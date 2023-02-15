@@ -12,7 +12,10 @@ const SignIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const [loading, setLoading] = useState(false);
+
   const handleEmailLogin = async () => {
+    setLoading(true);
     const { data: user, error } = await supabase.auth.signInWithPassword({
       email: emailRef.current.value,
       password: passwordRef.current.value,
@@ -25,6 +28,7 @@ const SignIn = () => {
     }
 
     toast.error(`Failed To Sign In, ${error}`);
+    setLoading(false);
   };
 
   const signIn = () => {
@@ -74,6 +78,7 @@ const SignIn = () => {
           <button
             onClick={() => signIn()}
             className="bg-green-600 text-white p-2"
+            disabled={loading}
           >
             Sign In
           </button>
