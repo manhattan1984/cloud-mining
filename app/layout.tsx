@@ -30,6 +30,7 @@ export default async function RootLayout({
     { name: "sign in", link: "/signin" },
     { name: "plans", link: "/plans" },
     { name: "about", link: "/about" },
+    { name: "contact", link: "/contact" },
   ];
 
   const signedInLinks = [
@@ -39,6 +40,7 @@ export default async function RootLayout({
     },
     { name: "dashboard", link: `/dashboard/${userId}` },
     { name: "about", link: "/about" },
+    { name: "contact", link: "/contact" },
   ];
 
   const accessToken = session?.access_token;

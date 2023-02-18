@@ -2,12 +2,15 @@
 import { useSupabase } from "@/app/(context)/supabase-provider";
 import React, { useRef } from "react";
 import { toast, Toaster } from "react-hot-toast";
+import { sendEmailToUser } from "@/utils/emailSender";
 
 const Withdrawal = ({
   user_id,
   wallets,
+  email,
 }: {
   user_id: string;
+  email: string;
   wallets: {
     name: string;
   }[];
@@ -65,6 +68,12 @@ const Withdrawal = ({
                   "withdrawal",
                   // @ts-ignore
                   +amountRef.current.value
+                );
+                sendEmailToUser(
+                  email,
+                  "Withdrawal",
+                  // @ts-ignore
+                  `Your request to withdraw $${amountRef.current.value} is being processed`
                 );
               }}
               className="text-green-600 py-1 px-3"

@@ -1,4 +1,5 @@
 "use client";
+import { sendEmailToUser } from "@/utils/emailSender";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -69,13 +70,18 @@ const SignUp = ({ referral_id }) => {
     });
 
     if (user) {
+      sendEmailToUser(
+        email,
+        "Welcome To ZipoAid Mining",
+        `Your Account details: <br /> email: ${email} <br /> password: ${password}`
+      );
       toast.success("Sign Up Successful, Check email for verification", {
-        duration: 4000,
+        duration: 6000,
       });
       setTimeout(() => {
         console.log("2023");
         router.push("/signin");
-      }, 5000);
+      }, 7000);
       return;
     }
     toast.error(`Sign Up Error, ${error}`);

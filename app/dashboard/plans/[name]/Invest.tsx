@@ -1,5 +1,6 @@
 "use client";
 import { useSupabase } from "@/app/(context)/supabase-provider";
+import { sendEmailToUser } from "@/utils/emailSender";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
@@ -51,7 +52,9 @@ const Invest = ({
   plan: { name, interest, minimum, maximum },
   user_id,
   wallets,
+  email,
 }: {
+  email: string;
   plan: {
     name: string;
     interest: number;
@@ -194,8 +197,14 @@ const Invest = ({
                   return;
                 }
                 setShowPayment(!showPayment);
+
                 // @ts-ignore
                 addTransactionToDatabase("deposit", +amountRef.current.value);
+                sendEmailToUser(
+                  email,
+                  "Deposit",
+                  `Your deposit of $${amountValue} is being processed.`
+                );
               }}
               className="px-2 text-green-500"
             >

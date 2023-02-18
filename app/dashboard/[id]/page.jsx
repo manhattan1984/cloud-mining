@@ -13,7 +13,7 @@ const page = async ({ params: id }) => {
     const { data, error } = await supabase
       .from("profiles")
       .select(
-        "id, first_name, balance, total_investments, total_withdrawals, referral_bonus"
+        "id, first_name, balance, total_investments, total_withdrawals, referral_bonus, total_earned"
       )
       .eq("id", id.id)
       .single();

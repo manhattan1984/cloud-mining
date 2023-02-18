@@ -12,6 +12,7 @@ const Dashboard = ({
     total_investments,
     total_withdrawals,
     referral_bonus,
+    total_earned,
   },
   deposits,
   transactions,
@@ -28,6 +29,10 @@ const Dashboard = ({
     {
       name: "Total Withdrawals",
       amount: total_withdrawals,
+    },
+    {
+      name: "Total Earned",
+      amount: total_earned,
     },
     {
       name: "Referral Bonus",
