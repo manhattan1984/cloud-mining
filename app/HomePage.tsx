@@ -22,6 +22,7 @@ import { TypeAnimation } from "react-type-animation";
 import Plans, { PlanType } from "./(components)/Plans";
 import { toast, Toaster } from "react-hot-toast";
 import { useEffect } from "react";
+import Link from "next/link";
 
 const features = [
   {
@@ -182,9 +183,19 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           >
             start mining
           </button>
-          <div className="text-center my-4 flex gap-4 justify-center">
-            <Image alt="android" height={120} src={Android} width={120} />
-            <Image alt="apple" height={120} src={Apple} width={120} />
+          <div className="">
+            <Link
+              href="/comingsoon"
+              className="text-center my-4 flex gap-4 justify-center items-center"
+            >
+              <div className="relative h-10 w-20">
+                <Image alt="android" src="/google.png" fill={true} />
+              </div>
+              <div className="relative h-8 w-20">
+                <Image alt="android" src="/apple.png" fill={true} />
+              </div>
+              
+            </Link>
           </div>
         </div>
       </div>
