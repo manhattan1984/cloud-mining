@@ -183,19 +183,24 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           >
             start mining
           </button>
-          <div className="">
-            <Link
-              href="/comingsoon"
-              className="text-center my-4 flex gap-4 justify-center items-center"
-            >
-              <div className="relative h-10 w-20">
-                <Image alt="android" src="/google.png" fill={true} />
-              </div>
-              <div className="relative h-8 w-20">
-                <Image alt="android" src="/apple.png" fill={true} />
-              </div>
-              
-            </Link>
+          <div className="flex justify-center">
+            <Image
+              height={0}
+              width={0}
+              sizes="100%"
+              className="h-30 w-1/2"
+              alt="android"
+              src="/google.png"
+            />
+
+            <Image
+              height={0}
+              width={0}
+              sizes="100%"
+              className="h-30 w-1/2"
+              alt="android"
+              src="/apple.png"
+            />
           </div>
         </div>
       </div>
