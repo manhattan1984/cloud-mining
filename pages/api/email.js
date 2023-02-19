@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     secure: false,
     auth: {
       user: "support@zipoaidmining.com", // generated ethereal user
-      pass: "Forever2021.", // generated ethereal password
+      pass: "Never2023.", // generated ethereal password
     },
     tls: {
       cipher: "STARTTLS",
