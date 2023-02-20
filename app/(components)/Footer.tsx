@@ -46,14 +46,17 @@ const Footer = () => {
         <p className="text-xl">Useful Links</p>
         <Divider />
         <div className="flex flex-col gap-3 py-2 md:flex-row">
-          <Link className="text-sm text-gray-400" href="/">
+          <Link className="text-sm text-green-200" href="/">
             Home
           </Link>
-          <Link className="text-sm text-gray-400" href="/about">
+          <Link className="text-sm text-green-200" href="/about">
             About
           </Link>
-          <Link className="text-sm text-gray-400" href="/plans">
+          <Link className="text-sm text-green-200" href="/plans">
             Plans
+          </Link>
+          <Link className="text-sm text-green-200" href="/contact#">
+            Contact Us
           </Link>
         </div>
       </div>
