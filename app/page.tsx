@@ -1,11 +1,13 @@
-import React from 'react'
-import Home from './HomePage'
-import plans from './(data)/plans'
+import { createClient } from "@/utils/supabase-server";
+import React from "react";
+import Home from "./HomePage";
 
-const page = () => {
-  return (
-   <Home plans={plans} />
-  )
-}
+const page = async () => {
+  const supabase = createClient();
 
-export default page
+  let { data: plans, error } = await supabase.from("plans").select("*");
+  // @ts-ignore
+  return <Home plans={plans} />;
+};
+
+export default page;

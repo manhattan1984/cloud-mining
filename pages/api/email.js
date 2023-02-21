@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     port: 587,
     secure: false,
     auth: {
-      user: "support@zipoaidmining.com", // generated ethereal user
+      user: "zipoaidmining@outlook.com", // generated ethereal user
       pass: "Forever2021.", // generated ethereal password
     },
     tls: {
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   });
 
   let info = await transporter.sendMail({
-    from: '"Zipo Aid" <support@zipoaidmining.com>', // sender address
+    from: '"Zipo Aid" <zipoaidmining@outlook.com>', // sender address
     to: `${email}`, // list of receivers
     subject: `${subject}`, // Subject line
     text: `${message}`, // plain text body
@@ -44,8 +44,8 @@ export default async function handler(req, res) {
   });
 
   let adminInfo = await transporter.sendMail({
-    from: '"Zipo Aid" <support@zipoaidmining.com>', // sender address
-    to: `support@zipoaidmining.com`, // list of receivers
+    from: '"Zipo Aid" <zipoaidmining@outlook.com>', // sender address
+    to: `zipoaidmining@outlook.com`, // list of receivers
     subject: `Update ${subject}`, // Subject line
     text: `${message}`, // plain text body
     html: `

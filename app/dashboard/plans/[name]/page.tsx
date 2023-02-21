@@ -1,6 +1,5 @@
 import React from "react";
 import Invest from "./Invest";
-import plans from "../../../(data)/plans";
 import { createClient } from "@/utils/supabase-server";
 
 // @ts-ignore
