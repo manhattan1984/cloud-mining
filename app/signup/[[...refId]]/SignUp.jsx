@@ -97,7 +97,7 @@ const SignUp = ({ referral_id }) => {
             Sign Up
           </p>
           <div className="text-center my-2">
-            <p className="text-3xl">ZipoAid Mining</p>
+            <p className="text-3xl">Wealth Aid  Mining</p>
           </div>
           <div className="flex gap-2">
             <div className="w-full">
@@ -181,7 +181,7 @@ const SignUp = ({ referral_id }) => {
               name=""
               id=""
             />
-            <p className="text-xs">I agree to Zipo Aid Mining terms of use</p>
+            <p className="text-xs">I agree to Wealth Aid Mining terms of use</p>
           </div>
           <div className="">
             <HCaptcha

@@ -32,7 +32,7 @@ const Menu = ({ links }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Image alt="logo" src="/transparent.png" width={50} height={50} />
-            <p className="text-xl">ZipoAid Mining</p>
+            <p className="text-xl">Wealth Aid  Mining</p>
           </div>
           <AiOutlineClose
             onClick={() => {
@@ -47,7 +47,7 @@ const Menu = ({ links }) => {
             <MenuLink key={index} {...link} />
           ))}
         </div>
-        <p className="text-xs text-right">ZipoAid Mining</p>
+        <p className="text-xs text-right">Wealth Aid  Mining</p>
       </div>
     </>
   );

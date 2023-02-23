@@ -1,9 +1,9 @@
 export default function Head() {
   return (
     <>
-      <title>ZipoAid Mining</title>
+      <title>Wealth Aid Mining</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Zipo Aid Mining" />
+      <meta name="description" content="Wealth Aid Mining" />
       <link rel="icon" href="/mining_white.ico" />
     </>
   )

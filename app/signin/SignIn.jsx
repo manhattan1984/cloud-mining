@@ -43,7 +43,7 @@ const SignIn = () => {
             Sign In
           </p>
           <div className="text-center my-2">
-            <p className="text-3xl">Zipo Aid Mining</p>
+            <p className="text-3xl">Wealth Aid Mining</p>
           </div>
 
           <div className="">

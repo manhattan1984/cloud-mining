@@ -173,7 +173,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
             The faster, safer platform to mining bitcoin!
           </p>
           <p className="text-md">
-            Zipoaidmining aims to extend business to the entire cryptocurrency
+            Wealth Aid Mining aims to extend business to the entire cryptocurrency
             industry chain in the future and serve global users with technology
             innovations
           </p>
@@ -213,7 +213,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           <p className="text-3xl uppercase my-4">how it works</p>
           <div className="h-[1px] bg-green-400 w-1/12 mx-auto"></div>
           <p className="my-4 text-gray-400 text-sm">
-            Getting started with Zipoaidmining is as simple as A B C! Simple
+            Getting started with Wealth Aid Mining is as simple as A B C! Simple
             steps to earning maximum profits
           </p>
         </div>
@@ -234,7 +234,7 @@ export default function Home({ plans }: { plans: PlanType[] }) {
       </div>
       {/* Space Ship */}
       <div className="bg-neutral-900 h-[100vh] flex flex-col items-center justify-center w-ful gap-4 text-white p-2 py-4 text-center">
-        <p className="text-2xl font-bold">ZipoAidMining</p>
+        <p className="text-2xl font-bold">Wealth Aid Mining</p>
         <div className="flex justify-center items-center">
           <iframe
             className=""
