@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="py-2">
           <div className="flex gap-2 items-center">
             <AiOutlineMail className="text-xl text-white" />
-            <p>support@zipoaidmining.com</p>
+            <p>wealthaidmining@outlook.com</p>
           </div>
           <div className="flex gap-2 items-center">
             <TiLocation className="text-xl text-white" />

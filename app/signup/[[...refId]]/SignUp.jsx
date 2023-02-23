@@ -72,7 +72,7 @@ const SignUp = ({ referral_id }) => {
     if (user) {
       sendEmailToUser(
         email,
-        "Welcome To ZipoAid Mining",
+        "Welcome To Wealth Aid Mining",
         `Your Account details: <br /> Email: ${email} <br /> Password: ${password}`
       );
       toast.success("Sign Up Successful, Check email for verification", {
