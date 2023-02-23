@@ -17,7 +17,7 @@ const Header = ({ token, links }) => {
       <Link href="/">
         <div className="flex items-center">
           <Image alt="Logo" src="/transparent.png" height={40} width={40} />
-          <p className="capitalize text-xl font-bold">Wealth Aid  mining</p>
+          <p className="capitalize text-xl font-bold">WealthAid Mining</p>
         </div>
       </Link>
       <div className="flex gap-4 items-center">

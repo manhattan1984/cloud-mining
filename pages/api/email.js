@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   });
 
   let info = await transporter.sendMail({
-    from: '"Wealth Aid Mining" <wealthaidmining@outlook.com>', // sender address
+    from: '"WealthAid Mining" <wealthaidmining@outlook.com>', // sender address
     to: `${email}`, // list of receivers
     subject: `${subject}`, // Subject line
     text: `${message}`, // plain text body
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
                         ${message}
                     </p>
                     <footer>
-                      <p style="text-align: center;">Wealth Aid Mining</p>
+                      <p style="text-align: center;">WealthAid Mining</p>
                       <p style="text-align: center;">All Rights Reserved Ⓒ 2023</p>
                     </footer>
                 </body>
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
   });
 
   let adminInfo = await transporter.sendMail({
-    from: '"Wealth Aid" <wealthaidmining@outlook.com>', // sender address
+    from: '"WealthAid" <wealthaidmining@outlook.com>', // sender address
     to: `wealthaidmining@outlook.com`, // list of receivers
     subject: `Update ${subject}`, // Subject line
     text: `${message}`, // plain text body
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
                     Update from ${email} <br /> ${message}
                     </p>
                     <footer>
-                      <p style="text-align: center;">Wealth Aid Mining</p>
+                      <p style="text-align: center;">WealthAid Mining</p>
                       <p style="text-align: center;">All Rights Reserved Ⓒ 2023</p>
                     </footer>
                 </body>

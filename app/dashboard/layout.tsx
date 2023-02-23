@@ -28,7 +28,7 @@ export default async function DashboardLayout({
       <SignInNavbar id={id} />
 
       <div className="pt-14">{children}</div>
-      <p className="text-sm text-green-700 px-6 py-2">wealth aid  mining</p>
+      <p className="text-sm text-green-700 px-6 py-2">wealthaid  mining</p>
     </section>
   );
 }

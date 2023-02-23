@@ -9,12 +9,12 @@ const Footer = () => {
   return (
     <div className="bg-neutral-900 text-white h-full p-4 flex flex-col gap-4 md:flex-row md:flex-wrap">
       <div className="">
-        <p className="text-xl mb-1">About Wealth Aid Mining</p>
+        <p className="text-xl mb-1">About WealthAid Mining</p>
         <Divider />
         <div className="">
           <div className="flex w-full">
             <Image alt="logo" src="/transparent.png" height={40} width={40} />
-            <p className="text-600 font-light text-xl my-4">Wealth Aid  Mining</p>
+            <p className="text-600 font-light text-xl my-4">WealthAid  Mining</p>
           </div>
           <p>
             Investment strategy is based on well researched Index Strategy and
