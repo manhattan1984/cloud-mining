@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { HiLocationMarker, HiMail } from "react-icons/hi";
+import { SiWhatsapp } from "react-icons/si";
 import { BiSupport } from "react-icons/bi";
 import { Toaster, toast } from "react-hot-toast";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -32,8 +34,18 @@ const page = () => {
           </div>
           <div className="w-full shadow p-2 text-center">
             <BiSupport className="w-full text-4xl" />
-            <p>Location</p>
+            <p>Support</p>
             <p>Chat With Us 24/7 </p>
+            <div className="flex gap-1 justify-center items-center w-full">
+              <SiWhatsapp className="text-green-600" />
+              <Link
+                passHref={true}
+                href="https://wa.me/+18055394475"
+                className="text-green-600"
+              >
+                +1 805-539-4475
+              </Link>
+            </div>
           </div>
         </div>
       </div>

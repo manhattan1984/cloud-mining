@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
+import { SiWhatsapp } from "react-icons/si";
 import { TiLocation } from "react-icons/ti";
 import Divider from "./Divider";
 
@@ -14,7 +15,7 @@ const Footer = () => {
         <div className="">
           <div className="flex w-full">
             <Image alt="logo" src="/transparent.png" height={40} width={40} />
-            <p className="text-600 font-light text-xl my-4">WealthAid  Mining</p>
+            <p className="text-600 font-light text-xl my-4">WealthAid Mining</p>
           </div>
           <p>
             Investment strategy is based on well researched Index Strategy and
@@ -25,7 +26,7 @@ const Footer = () => {
       </div>
 
       <div className="">
-        <p className="text-xl mb-1">Email & Location</p>
+        <p className="text-xl mb-1">Contact & Location</p>
         <Divider />
 
         <div className="py-2">
@@ -33,11 +34,21 @@ const Footer = () => {
             <AiOutlineMail className="text-xl text-white" />
             <p>wealthaid@outlook.com</p>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center my-1">
             <TiLocation className="text-xl text-white" />
             <p className="text-sm">
               1900 Fifth Avenue North Birmingham, Alabama, USA
             </p>
+          </div>
+          <div className="flex gap-2 items-center">
+            <SiWhatsapp className="text-white text-lg" />
+            <Link
+              passHref={true}
+              href="https://wa.me/+18055394475"
+              className="text-green-500 text-sm"
+            >
+              +1 805-539-4475
+            </Link>
           </div>
         </div>
       </div>
