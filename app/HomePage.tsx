@@ -86,8 +86,6 @@ const Feature = ({ icon, title, body }) => (
 const coins = [
   "bitcoin",
   2000,
-  "ethereum",
-  2000,
   "Doge",
   2000,
   "Litecoin",
