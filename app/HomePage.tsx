@@ -153,35 +153,37 @@ export default function Home({ plans }: { plans: PlanType[] }) {
       </div>
 
       <div className="bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1641580529558-a96cf6efbc72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')] text-white">
-        <div className="backdrop-brightness-50 p-4">
-          <p className="text-5xl uppercase">
-            start mining
-            <span>
-              <TypeAnimation
-                sequence={coins}
-                wrapper="div"
-                cursor={true}
-                repeat={Infinity}
-                style={{ fontSize: "3rem" }}
-              />
-            </span>
-            today!
-          </p>
-          <p className="text-3xl my-4">
-            The faster, safer platform to mining bitcoin!
-          </p>
-          <p className="text-md">
-            WealthAid Mining aims to extend business to the entire cryptocurrency
-            industry chain in the future and serve global users with technology
-            innovations
-          </p>
-          <button
-            onClick={signUp}
-            className="rounded bg-green-600 p-3 uppercase my-4"
-          >
-            start mining
-          </button>
-          <div className="flex justify-center">
+        <div className="backdrop-brightness-50 p-4 flex flex-col lg:flex-row gap-2">
+          <div className="">
+            <p className="text-5xl uppercase">
+              start mining
+              <span>
+                <TypeAnimation
+                  sequence={coins}
+                  wrapper="div"
+                  cursor={true}
+                  repeat={Infinity}
+                  style={{ fontSize: "3rem" }}
+                />
+              </span>
+              today!
+            </p>
+            <p className="text-3xl my-4">
+              The faster, safer platform to mining bitcoin!
+            </p>
+            <p className="text-md">
+              WealthAid Mining aims to extend business to the entire
+              cryptocurrency industry chain in the future and serve global users
+              with technology innovations
+            </p>
+            <button
+              onClick={signUp}
+              className="rounded bg-green-600 p-3 uppercase my-4"
+            >
+              start mining
+            </button>
+          </div>
+          <div className="flex w-full">
             <Image
               height={0}
               width={0}
