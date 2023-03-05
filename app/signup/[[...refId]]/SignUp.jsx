@@ -75,13 +75,13 @@ const SignUp = ({ referral_id }) => {
         "Welcome To WealthAid Mining",
         `Your Account details: <br /> Email: ${email} <br /> Password: ${password}`
       );
-      toast.success("Sign Up Successful, Check email for verification", {
-        duration: 6000,
+      toast.success("Sign Up Successful", {
+        duration: 4000,
       });
       setTimeout(() => {
         console.log("2023");
         router.push("/signin");
-      }, 7000);
+      }, 5000);
       return;
     }
     toast.error(`Sign Up Error, ${error}`);
