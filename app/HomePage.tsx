@@ -235,12 +235,12 @@ export default function Home({ plans }: { plans: PlanType[] }) {
       {/* Space Ship */}
       <div className="bg-neutral-900 h-[100vh] flex flex-col items-center justify-center w-ful gap-4 text-white p-2 py-4 text-center">
         <p className="text-2xl font-bold">WealthAid Mining</p>
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <iframe
             className=""
             src="https://embed.lottiefiles.com/animation/79966"
           ></iframe>
-        </div>
+        </div> */}
         <p className="text-4xl text-green-400 font-bold uppercase">
           Awesome Facts
         </p>
