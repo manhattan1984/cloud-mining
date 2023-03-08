@@ -1,8 +1,5 @@
 "use client";
-import Calculator from "@/app/(components)/Calculator";
 import Image from "next/image";
-import Android from "../public/android.png";
-import Apple from "../public/apple.png";
 import { IoMdCreate } from "react-icons/io";
 import { TbHandFinger } from "react-icons/tb";
 import {
@@ -22,7 +19,7 @@ import { TypeAnimation } from "react-type-animation";
 import Plans, { PlanType } from "./(components)/Plans";
 import { toast, Toaster } from "react-hot-toast";
 import { useEffect } from "react";
-import Link from "next/link";
+import Reviews from "./(components)/Reviews";
 
 const features = [
   {
@@ -290,6 +287,8 @@ export default function Home({ plans }: { plans: PlanType[] }) {
 
         <Plans plans={plans} />
       </div>
+
+      <Reviews />
 
       {/* Contact Form */}
       <div className="bg-neutral-800">
