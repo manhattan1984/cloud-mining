@@ -113,16 +113,9 @@ const Reviews = () => {
     const isLastSlide = currentIndex === listOfReviews.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-    console.log("toast");
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div className="mx-4 my-8">
       <p className="text-2xl uppercase">Reviews</p>
