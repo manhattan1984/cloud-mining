@@ -40,11 +40,11 @@ const SignUp = ({ referral_id }) => {
   const { supabase, session } = useSupabase();
 
   const handleSignUp = async () => {
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    const first_name = firstNameRef.current.value;
-    const last_name = lastNameRef.current.value;
-    const phone_number = phoneNumberRef.current.value;
+    const email = emailRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
+    const first_name = firstNameRef.current.value.trim();
+    const last_name = lastNameRef.current.value.trim();
+    const phone_number = phoneNumberRef.current.value.trim();
 
     if (!(email && password && first_name && last_name && phone_number)) {
       toast.error("Please Fill The Form Completely");
@@ -97,7 +97,7 @@ const SignUp = ({ referral_id }) => {
             Sign Up
           </p>
           <div className="text-center my-2">
-            <p className="text-3xl">WealthAid  Mining</p>
+            <p className="text-3xl">WealthAid Mining</p>
           </div>
           <div className="flex gap-2">
             <div className="w-full">
