@@ -33,7 +33,7 @@ const Payment = ({ amount, setShow, name, address, qr_code_url }) => {
             </div>
           </div>
           <p>
-            {name} Wallet: <span className="font-bold">{address}</span>{" "}
+            {name} Wallet: <span className="font-bold w-full break-all text-xs">{address}</span>{" "}
           </p>
         </div>
       </div>
@@ -203,7 +203,7 @@ const Invest = ({
                 sendEmailToUser(
                   email,
                   "Deposit",
-                  `Your deposit of $${amountValue} is being processed.`
+                  `Your deposit of $${amountValue} in ${selectedWallet.name} is being processed.`
                 );
               }}
               className="px-2 text-green-500"
