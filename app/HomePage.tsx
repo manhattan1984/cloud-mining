@@ -20,6 +20,7 @@ import Plans, { PlanType } from "./(components)/Plans";
 import { toast, Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import Reviews from "./(components)/Reviews";
+import FAQ from "./(components)/FAQ";
 
 const features = [
   {

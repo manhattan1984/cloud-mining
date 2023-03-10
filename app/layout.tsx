@@ -32,6 +32,7 @@ export default async function RootLayout({
     { name: "plans", link: "/plans" },
     { name: "about", link: "/about" },
     { name: "contact", link: "/contact" },
+    { name: "FAQs", link: "/faqs" },
   ];
 
   const signedInLinks = [
