@@ -7,7 +7,7 @@ const page = () => {
     {
       question: "Why Choose Us",
       answer:
-        "Big Scope Profit Station has for years been one of the most trusted and reliable crypto broker company, with our trusted experts that work irelessly to ensure our clients get the most of their investment.",
+        "WealthAid Mining has for years been one of the most trusted and reliable crypto broker company, with our trusted experts that work irelessly to ensure our clients get the most of their investment.",
     },
     {
       question: "Can I Invest Using Cryptocurrency",
