@@ -1,18 +1,10 @@
 "use strict";
+
+import { createClient } from "@/utils/supabase-browser";
+
 const nodemailer = require("nodemailer");
 
 export default async function handler(req, res) {
-  //   const data = JSON.parse(req.body);
-
-//   const { email, message, subject } = data;
-
-  const email = "mikkimanhattan@gmail.com";
-  const message = "hello world";
-  const subject = "cold world";
-
-  console.log(email);
-  console.log(message);
-
   let transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
@@ -25,14 +17,26 @@ export default async function handler(req, res) {
       cipher: "STARTTLS",
     },
     requireTLS: true,
+    pool: true,
+    maxConnections: 1,
   });
 
-  let info = await transporter.sendMail({
-    from: '"WealthAid Mining" <wealthaid@outlook.com>', // sender address
-    to: `${email}`, // list of receivers
-    subject: `${subject}`, // Subject line
-    text: `${message}`, // plain text body
-    html: `
+  const supabase = createClient();
+
+  let { data: emails, error } = await supabase.from("test").select("email");
+
+  console.log(emails);
+
+  const message = "Does It Work?";
+  const subject = "Testing Purposes Only";
+
+  emails.map(async ({ email }) => {
+    let info = await transporter.sendMail({
+      from: '"WealthAid Mining" <wealthaid@outlook.com>', // sender address
+      to: `${email}`, // list of receivers
+      subject: `${subject}`, // Subject line
+      text: `${message}`, // plain text body
+      html: `
              <html>
                 <body>
                     <p>
@@ -45,7 +49,10 @@ export default async function handler(req, res) {
                 </body>
              </html>
              `, // html body
+    });
   });
 
   console.log("Message Sent!");
+
+  return res.end(JSON.stringify(emails));
 }
