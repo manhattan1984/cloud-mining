@@ -50,6 +50,8 @@ export default async function handler(req, res) {
              </html>
              `, // html body
     });
+
+    console.log("info", info);
   });
 
   console.log("Message Sent!");
