@@ -24,7 +24,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/signup/[[...refId]]/SignUp.jsx", "app/(context)/MenuContext.jsx", "app/signin/SignIn.jsx", "app/dashboard/[id]/page.jsx", "app/dashboard/[id]/Dashboard.jsx", "app/dashboard/profile/[id]/Profile.jsx", "app/dashboard/transactionlog/[id]/TransactionHistory.jsx", "app/dashboard/(components)/Referral.jsx", "app/dashboard/referrals/[id]/ReferralsPage.jsx", "app/forgot-password/ForgotPassword.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/signup/[[...refId]]/SignUp.jsx", "app/(context)/MenuContext.jsx", "app/signin/SignIn.jsx", "app/dashboard/[id]/page.jsx", "app/dashboard/[id]/Dashboard.jsx", "app/dashboard/profile/[id]/Profile.jsx", "app/dashboard/transactionlog/[id]/TransactionHistory.jsx", "app/dashboard/(components)/Referral.jsx", "app/dashboard/referrals/[id]/ReferralsPage.jsx", "app/forgot-password/ForgotPassword.jsx", "pages/api/handler.js"],
   "exclude": ["node_modules"],
   "types": ["react/next"]
 }
