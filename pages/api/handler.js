@@ -21,6 +21,19 @@ export default async function handler(req, res) {
     maxConnections: 1,
   });
 
+  await new Promise((resolve, reject) => {
+    // verify connection configuration
+    transporter.verify(function (error, success) {
+      if (error) {
+        console.log(error);
+        reject(error);
+      } else {
+        console.log("Server is ready to take our messages");
+        resolve(success);
+      }
+    });
+  });
+
   const supabase = createClient();
 
   let { data: emails, error } = await supabase.from("test").select("email");
@@ -31,12 +44,14 @@ export default async function handler(req, res) {
   const subject = "Testing Purposes Only";
 
   emails.map(async ({ email }) => {
-    let info = await transporter.sendMail({
-      from: '"WealthAid Mining" <wealthaid@outlook.com>', // sender address
-      to: `${email}`, // list of receivers
-      subject: `${subject}`, // Subject line
-      text: `${message}`, // plain text body
-      html: `
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(
+        {
+          from: '"WealthAid Mining" <wealthaid@outlook.com>', // sender address
+          to: `${email}`, // list of receivers
+          subject: `${subject}`, // Subject line
+          text: `${message}`, // plain text body
+          html: `
              <html>
                 <body>
                     <p>
@@ -49,12 +64,21 @@ export default async function handler(req, res) {
                 </body>
              </html>
              `, // html body
+        },
+        (err, info) => {
+          if (err) {
+            console.error(err);
+            reject(err);
+          } else {
+            console.log(info);
+            resolve(info);
+          }
+        }
+      );
     });
-
-    console.log("info", info);
   });
 
   console.log("Message Sent!");
 
-  return res.end(JSON.stringify(emails));
+  res.status(200).json({ status: "OK" });
 }
