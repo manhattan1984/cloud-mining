@@ -9,6 +9,8 @@ export default async function handler(req, res) {
 
   console.log(emails);
 
+  const emailAddresses = emails.map(({ email }) => email);
+
   const message = "Does It Work?";
   const subject = "Testing Purposes Only";
 
@@ -18,23 +20,23 @@ export default async function handler(req, res) {
     "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"
   );
 
-  emails.map(async ({ email }) => {
-    const msg = {
-      to: email, // Change to your recipient
-      from: "wealthaid@outlook.com", // Change to your verified sender
-      subject,
-      text: message,
-      html: `<strong>${message}</strong>`,
-    };
+  // emails.map(({ email }) => {
+  const msg = {
+    to: emailAddresses, // Change to your recipient
+    from: "wealthaid@outlook.com", // Change to your verified sender
+    subject,
+    text: message,
+    html: `<strong>${message}</strong>`,
+  };
 
-    await sgMail
-      .send(msg)
-      .then(() => {
-        console.log("Email sent");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
+  await sgMail
+    .sendMultiple(msg)
+    .then(() => {
+      console.log("Email sent");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  // });
   res.status(200).json({ status: "OK" });
 }
