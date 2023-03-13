@@ -18,23 +18,23 @@ export default async function handler(req, res) {
     "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"
   );
 
-  // emails.map(({ email }) => {
-  const msg = {
-    to: "mikkimanhattan@gmail.com", // Change to your recipient
-    from: "wealthaid@outlook.com", // Change to your verified sender
-    subject,
-    text: message,
-    html: `<strong>${message}</strong>`,
-  };
+  emails.map(async ({ email }) => {
+    const msg = {
+      to: email, // Change to your recipient
+      from: "wealthaid@outlook.com", // Change to your verified sender
+      subject,
+      text: message,
+      html: `<strong>${message}</strong>`,
+    };
 
-  await sgMail
-    .send(msg)
-    .then(() => {
-      console.log("Email sent");
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  // });
+    await sgMail
+      .send(msg)
+      .then(() => {
+        console.log("Email sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
   res.status(200).json({ status: "OK" });
 }
