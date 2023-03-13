@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     html: `<strong>${message}</strong>`,
   };
 
-  sgMail
+  await sgMail
     .send(msg)
     .then(() => {
       console.log("Email sent");
