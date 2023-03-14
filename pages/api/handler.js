@@ -9,34 +9,64 @@ export default async function handler(req, res) {
 
   console.log(emails);
 
-  const emailAddresses = emails.map(({ email }) => email);
+  // Newsletters
 
-  const message = "Does It Work?";
-  const subject = "Testing Purposes Only";
+  let { data: unpublishedNewsletterIssues, error: selectIssuesError } =
+    await supabase.from("newsletter-issues").select().eq("published", false);
 
-  const sgMail = require("@sendgrid/mail");
+  console.log(unpublishedNewsletterIssues);
 
-  sgMail.setApiKey(
-    "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"
-  );
+  const todayDate = new Date();
+  const issueScheduledForToday = unpublishedNewsletterIssues.find((issue) => {
+    const issueScheduleDate = new Date(issue.scheduled_at);
+    return (
+      todayDate.getFullYear() === issueScheduleDate.getFullYear() &&
+      todayDate.getMonth() === issueScheduleDate.getMonth() &&
+      todayDate.getDate() === issueScheduleDate.getDate()
+    );
+    
+  });
 
-  // emails.map(({ email }) => {
-  const msg = {
-    to: emailAddresses, // Change to your recipient
-    from: "wealthaid@outlook.com", // Change to your verified sender
-    subject,
-    text: message,
-    html: `<strong>${message}</strong>`,
-  };
+  if (!issueScheduledForToday) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: `Found no unpublished issue that is scheduled for today: ${JSON.stringify(
+          unpublishedNewsletterIssues
+        )}`,
+      }),
+    };
+  } else {
+    // Emails and sending begins
 
-  await sgMail
-    .sendMultiple(msg)
-    .then(() => {
-      console.log("Email sent");
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  // });
+    const emailAddresses = emails.map(({ email }) => email);
+
+    const message = "Does It Work?";
+    const subject = issueScheduledForToday.title;
+
+    const sgMail = require("@sendgrid/mail");
+
+    sgMail.setApiKey(
+      "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"
+    );
+
+    const msg = {
+      to: emailAddresses, // Change to your recipient
+      from: "wealthaid@outlook.com", // Change to your verified sender
+      subject,
+      text: message,
+      html: issueScheduledForToday.html,
+    };
+
+    await sgMail
+      .sendMultiple(msg)
+      .then(() => {
+        console.log("Email sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   res.status(200).json({ status: "OK" });
 }
