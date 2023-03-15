@@ -32,7 +32,7 @@ const dataItems = [
     body: "The newest ASIC miner, GPU rigs are Ready to mine.",
     image: (
       <video className="w-full" autoPlay={true} controls>
-        <source src="/cooling.mp4" />
+        <source src="/server.mp4" />
       </video>
     ),
   },
@@ -42,7 +42,7 @@ const dataItems = [
     body: "Air cooling system and Water cooling system keeping temperature: 20-24°C.",
     image: (
       <video className="w-full" autoPlay={true} controls={true}>
-        <source src="/server.mp4" />
+        <source src="/cooling.mp4" />
       </video>
     ),
   },

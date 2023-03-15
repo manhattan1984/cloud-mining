@@ -7,14 +7,14 @@ export default async function handler(req, res) {
 
   let { data: emails, error } = await supabase.from("test").select("email");
 
-  console.log(emails);
+
 
   // Newsletters
 
   let { data: unpublishedNewsletterIssues, error: selectIssuesError } =
     await supabase.from("newsletter-issues").select().eq("published", false);
 
-  console.log(unpublishedNewsletterIssues);
+
 
   const todayDate = new Date();
   const issueScheduledForToday = unpublishedNewsletterIssues.find((issue) => {

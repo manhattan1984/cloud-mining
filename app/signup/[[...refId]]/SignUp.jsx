@@ -79,7 +79,7 @@ const SignUp = ({ referral_id }) => {
         duration: 4000,
       });
       setTimeout(() => {
-        console.log("2023");
+
         router.push("/signin");
       }, 5000);
       return;

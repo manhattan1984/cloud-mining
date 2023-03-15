@@ -6,8 +6,8 @@ const page = async () => {
   const supabase = createClient();
 
   let { data: plans, error } = await supabase.from("plans").select("*");
-  console.log('plans',plans)
-  console.log('error', error)
+
+
   // @ts-ignore
   return <Home plans={plans || []} />;
 };

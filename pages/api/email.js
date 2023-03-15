@@ -6,8 +6,7 @@ export default async function handler(req, res) {
 
   const { email, message, subject } = data;
 
-  console.log(email);
-  console.log(message);
+ 
 
   let transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
