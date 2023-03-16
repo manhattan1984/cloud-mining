@@ -52,7 +52,7 @@ export default async function handler(req, res) {
 
     const msg = {
       to: emailAddresses, // Change to your recipient
-      from: "wealthaid@outlook.com", // Change to your verified sender
+      from: "support@wealthaidmining.com", // Change to your verified sender
       subject,
       text: message,
       html: issueScheduledForToday.html,
