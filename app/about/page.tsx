@@ -32,7 +32,7 @@ const dataItems = [
     body: "The newest ASIC miner, GPU rigs are Ready to mine.",
     image: (
       <video className="w-full" autoPlay={true} controls>
-        <source src="/server.mp4" />
+        <source src="https://pcyleqdmisqoflgzpytc.supabase.co/storage/v1/object/public/content/server.mp4" />
       </video>
     ),
   },
@@ -42,7 +42,7 @@ const dataItems = [
     body: "Air cooling system and Water cooling system keeping temperature: 20-24°C.",
     image: (
       <video className="w-full" autoPlay={true} controls={true}>
-        <source src="/cooling.mp4" />
+        <source src="https://pcyleqdmisqoflgzpytc.supabase.co/storage/v1/object/public/content/cooling.mp4" />
       </video>
     ),
   },
@@ -84,24 +84,24 @@ const page = () => {
         <Divider />
 
         <p className="my-2 font-light">
-          WealthAid Mining was founded in 2018. <br /> We've developed the world's
-          Top Cloud Mining Platform with the most advanced deployment
+          WealthAid Mining was founded in 2018. <br /> We've developed the
+          world's Top Cloud Mining Platform with the most advanced deployment
           technology, More new product and services are in our pipeline.
         </p>
 
         <p className="text-3xl my-4">Our Team</p>
         <Divider />
         <p className="my-2 font-light">
-          Most of WealthAid Mining team are from top dotcom companies. Over half of
-          our team are R&D division who possess rich technological prowess.
+          Most of WealthAid Mining team are from top dotcom companies. Over half
+          of our team are R&D division who possess rich technological prowess.
         </p>
 
         <p className="text-3xl my-4">Our Vision</p>
         <Divider />
         <p className="my-2 font-light">
-          WealthAid Mining aims to extend our business to the entire cryptocurrency
-          industry chain in the future and serve global users with technology
-          innovations.
+          WealthAid Mining aims to extend our business to the entire
+          cryptocurrency industry chain in the future and serve global users
+          with technology innovations.
         </p>
       </div>
       <div className="">
@@ -115,7 +115,6 @@ const page = () => {
           ))}
         </div>
       </div>
-
     </div>
   );
 };

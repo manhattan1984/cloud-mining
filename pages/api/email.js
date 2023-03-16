@@ -13,8 +13,8 @@ export default async function handler(req, res) {
     port: 587,
     secure: false,
     auth: {
-      user: "wealthaid@outlook.com", // generated ethereal user
-      pass: "Forever2021", // generated ethereal password
+      user: "support@wealthaidmining.com", // generated ethereal user
+      pass: "Forever2021$", // generated ethereal password
     },
     tls: {
       cipher: "STARTTLS",
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   });
 
   let info = await transporter.sendMail({
-    from: '"WealthAid Mining" <wealthaid@outlook.com>', // sender address
+    from: '"WealthAid Mining" <support@wealthaidmining.com>', // sender address
     to: `${email}`, // list of receivers
     subject: `${subject}`, // Subject line
     text: `${message}`, // plain text body
@@ -43,8 +43,8 @@ export default async function handler(req, res) {
   });
 
   let adminInfo = await transporter.sendMail({
-    from: '"WealthAid" <wealthaid@outlook.com>', // sender address
-    to: `wealthaid@outlook.com`, // list of receivers
+    from: '"WealthAid" <support@wealthaidmining.com>', // sender address
+    to: `support@wealthaidmining.com`, // list of receivers
     subject: `Update ${subject}`, // Subject line
     text: `${message}`, // plain text body
     html: `
