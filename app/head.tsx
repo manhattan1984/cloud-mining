@@ -9,17 +9,7 @@ export default function Head() {
       <link rel="icon" href="/mining_white.ico" />
       <Script
         dangerouslySetInnerHTML={{
-          __html: `
-          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-          (function(){
-          var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-          s1.async=true;
-          s1.src='https://embed.tawk.to/6418bb1d4247f20fefe701fd/1gs09lrno';
-          s1.charset='UTF-8';
-          s1.setAttribute('crossorigin','*');
-          s0.parentNode.insertBefore(s1,s0);
-          })();
-`,
+          __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="076a7f70-4c5f-45bb-be8f-76f45c1e9d7e";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
         }}
         id="chat"
         strategy="afterInteractive"
