@@ -21,7 +21,7 @@ export default function Head() {
           })();
 `,
         }}
-        async
+        id="chat"
         strategy="afterInteractive"
       />
     </>
