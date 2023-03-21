@@ -8,6 +8,10 @@ export const sendEmailToUser = async (email, subject, message) => {
     method: "POST",
     body: JSON.stringify(data),
   });
+  await fetch("/api/whatsapp", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
   if (results.status == 200) {
     console.log("success");
   } else {
