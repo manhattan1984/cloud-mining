@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     secure: false,
     auth: {
       user: "apikey", // generated ethereal user
-      pass: "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", 
+      pass: process.env.NEXT_PUBLIC_SENDGRID_KEY, 
     },
   });
 
