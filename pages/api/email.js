@@ -6,18 +6,24 @@ export default async function handler(req, res) {
 
   const { email, message, subject } = data;
 
+ 
+
   let transporter = nodemailer.createTransport({
-    host: "smtp.sendgrid.net",
+    host: "smtp.office365.com",
     port: 587,
     secure: false,
     auth: {
-      user: "apikey", // generated ethereal user
-      pass: process.env.NEXT_PUBLIC_SENDGRID_KEY, 
+      user: "wealthaidmining@outlook.com", // generated ethereal user
+      pass: "Forever2021", // generated ethereal password
     },
+    tls: {
+      cipher: "STARTTLS",
+    },
+    requireTLS: true,
   });
 
   // let info = await transporter.sendMail({
-  //   from: '"WealthAid Mining" <support@wealthaidmining.com>', // sender address
+  //   from: '"WealthAid Mining" <wealthaidmining@outlook.com>', // sender address
   //   to: `${email}`, // list of receivers
   //   subject: `${subject}`, // Subject line
   //   text: `${message}`, // plain text body
@@ -37,8 +43,8 @@ export default async function handler(req, res) {
   // });
 
   let adminInfo = await transporter.sendMail({
-    from: '"WealthAid" <wealthaid@outlook.com>', // sender address
-    to: `support@wealthaidmining.com`, // list of receivers
+    from: '"WealthAid Mining" <wealthaidmining@outlook.com>', // sender address
+    to: `wealthaid@outlook.com`, // list of receivers
     subject: `Update ${subject}`, // Subject line
     text: `${message}`, // plain text body
     html: `
@@ -57,5 +63,4 @@ export default async function handler(req, res) {
   });
 
   console.log("Message Sent!");
-  return res.status(200);
 }

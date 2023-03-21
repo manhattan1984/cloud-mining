@@ -76,7 +76,7 @@ const Withdrawal = ({
                   email,
                   "Withdrawal",
                   // @ts-ignore
-                  `Your request to withdraw $${amountRef.current.value} is being processed`
+                  `We have been notified of your recent request of $${amountRef.current.value}. It is currently being processed. Thank you.`
                 );
 
                 // router.push(`/dashboard/${user_id}`);
