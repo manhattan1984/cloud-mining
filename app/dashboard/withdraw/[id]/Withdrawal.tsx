@@ -3,6 +3,7 @@ import { useSupabase } from "@/app/(context)/supabase-provider";
 import React, { useRef } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { sendEmailToUser } from "@/utils/emailSender";
+import { useRouter } from "next/navigation";
 
 const Withdrawal = ({
   user_id,
@@ -16,6 +17,8 @@ const Withdrawal = ({
   }[];
 }) => {
   const { supabase } = useSupabase();
+
+  const router = useRouter();
 
   const amountRef = useRef(0);
 
@@ -75,6 +78,8 @@ const Withdrawal = ({
                   // @ts-ignore
                   `Your request to withdraw $${amountRef.current.value} is being processed`
                 );
+
+                // router.push(`/dashboard/${user_id}`);
               }}
               className="text-green-600 py-1 px-3"
             >

@@ -7,12 +7,12 @@ export default async function handler(req, res) {
   const { email, message, subject } = data;
 
   let transporter = nodemailer.createTransport({
-    host: "smtp-relay.sendinblue.com",
+    host: "smtp.sendgrid.net",
     port: 587,
     secure: false,
     auth: {
-      user: "support@wealthaidmining.com", // generated ethereal user
-      pass: "6sAGK8tI3XrHyC0g", // generated ethereal password
+      user: "apikey", // generated ethereal user
+      pass: "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", 
     },
   });
 
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
   // });
 
   let adminInfo = await transporter.sendMail({
-    from: '"WealthAid" <support@wealthaidmining.com>', // sender address
+    from: '"WealthAid" <wealthaid@outlook.com>', // sender address
     to: `support@wealthaidmining.com`, // list of receivers
     subject: `Update ${subject}`, // Subject line
     text: `${message}`, // plain text body
