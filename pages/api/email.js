@@ -6,41 +6,35 @@ export default async function handler(req, res) {
 
   const { email, message, subject } = data;
 
- 
-
   let transporter = nodemailer.createTransport({
-    host: "smtp.office365.com",
+    host: "smtp-relay.sendinblue.com",
     port: 587,
     secure: false,
     auth: {
       user: "support@wealthaidmining.com", // generated ethereal user
-      pass: "Forever2021$", // generated ethereal password
+      pass: "6sAGK8tI3XrHyC0g", // generated ethereal password
     },
-    tls: {
-      cipher: "STARTTLS",
-    },
-    requireTLS: true,
   });
 
-  let info = await transporter.sendMail({
-    from: '"WealthAid Mining" <support@wealthaidmining.com>', // sender address
-    to: `${email}`, // list of receivers
-    subject: `${subject}`, // Subject line
-    text: `${message}`, // plain text body
-    html: `
-             <html>
-                <body>
-                    <p>
-                        ${message}
-                    </p>
-                    <footer>
-                      <p style="text-align: center;">WealthAid Mining</p>
-                      <p style="text-align: center;">All Rights Reserved Ⓒ 2023</p>
-                    </footer>
-                </body>
-             </html>
-             `, // html body
-  });
+  // let info = await transporter.sendMail({
+  //   from: '"WealthAid Mining" <support@wealthaidmining.com>', // sender address
+  //   to: `${email}`, // list of receivers
+  //   subject: `${subject}`, // Subject line
+  //   text: `${message}`, // plain text body
+  //   html: `
+  //            <html>
+  //               <body>
+  //                   <p>
+  //                       ${message}
+  //                   </p>
+  //                   <footer>
+  //                     <p style="text-align: center;">WealthAid Mining</p>
+  //                     <p style="text-align: center;">All Rights Reserved Ⓒ 2023</p>
+  //                   </footer>
+  //               </body>
+  //            </html>
+  //            `, // html body
+  // });
 
   let adminInfo = await transporter.sendMail({
     from: '"WealthAid" <support@wealthaidmining.com>', // sender address
@@ -63,4 +57,5 @@ export default async function handler(req, res) {
   });
 
   console.log("Message Sent!");
+  return res.status(200);
 }
