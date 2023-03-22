@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     .create({
       body: `${email}: ${message}`,
       from: "whatsapp:+14155238886",
-      to: "whatsapp:+2348125365368",
+      to: "whatsapp:+2349061188276",
     })
     .then((message) => console.log(message.sid));
   // .done();
