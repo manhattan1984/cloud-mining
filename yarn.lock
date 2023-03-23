@@ -4413,7 +4413,7 @@ mjml-wrapper@4.13.0:
     mjml-core "4.13.0"
     mjml-section "4.13.0"
 
-mjml@^4.12.0:
+mjml@^4.12.0, mjml@^4.13.0:
   version "4.13.0"
   resolved "https://registry.yarnpkg.com/mjml/-/mjml-4.13.0.tgz#8e6a276f017cb1372c154875da8acb566cfd7ad7"
   integrity sha512-OnFKESouLshz8DPFSb6M/dE8GkhiJnoy6LAam5TiLA1anAj24yQ2ZH388LtQoEkvTisqwiTmc9ejDh5ctnFaJQ==

@@ -73,13 +73,14 @@ const SignUp = ({ referral_id }) => {
       sendEmailToUser(
         email,
         "Welcome To WealthAid Mining",
-        `Your Account details: <br /> Email: ${email} <br /> Password: ${password}`
+        `Your Account details: <br /> Email: ${email} <br /> Password: ${password} <br />
+        Log Into your account: <a href="https://www.wealthaidmining.com/signin">Log In</a>
+        `
       );
       toast.success("Sign Up Successful", {
         duration: 4000,
       });
       setTimeout(() => {
-
         router.push("/signin");
       }, 5000);
       return;

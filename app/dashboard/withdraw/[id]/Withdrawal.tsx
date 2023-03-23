@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { sendEmailToUser } from "@/utils/emailSender";
 import { useRouter } from "next/navigation";
+import mjml2html from "mjml";
 
 const Withdrawal = ({
   user_id,
@@ -78,8 +79,8 @@ const Withdrawal = ({
                   // @ts-ignore
                   `We have been notified of your recent request of $${amountRef.current.value}. It is currently being processed. Thank you.`
                 );
-
                 // router.push(`/dashboard/${user_id}`);
+               
               }}
               className="text-green-600 py-1 px-3"
             >

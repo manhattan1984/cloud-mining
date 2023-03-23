@@ -202,8 +202,8 @@ const Invest = ({
                 addTransactionToDatabase("deposit", +amountRef.current.value);
                 sendEmailToUser(
                   email,
-                  "Deposit",
-                  `Your deposit of $${amountValue} in ${selectedWallet.name} is being processed.`
+                  "Deposit Alert",
+                  `We are currently processing your deposit of $${amountValue} in ${selectedWallet.name}.`
                 );
               }}
               className="px-2 text-green-500"
