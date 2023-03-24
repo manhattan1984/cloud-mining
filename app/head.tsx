@@ -24,6 +24,23 @@ window.smartsupp||(function(d) {
 })(document);
 `}
       </Script>
+
+      {/* <Script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async />
+      <Script>
+        {`window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "509d1867-15f5-4a4d-b4d5-eff768ffc3b1",
+      safari_web_id: "web.onesignal.auto.2900aeea-27da-4bc5-9f95-2e3d9a76781c",
+      notifyButton: {
+        enable: true,
+      },
+      allowLocalhostAsSecureOrigin: true,
+    });
+  });`}
+      </Script> */}
+
+      {/* <Script></Script> */}
     </>
   );
 }

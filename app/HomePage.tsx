@@ -21,6 +21,7 @@ import { toast, Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import Reviews from "./(components)/Reviews";
 import FAQ from "./(components)/FAQ";
+import Link from "next/link";
 
 const features = [
   {
@@ -145,7 +146,9 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           </p>
         </div>
         <div className="flex flex-col gap-2">
-          <button className="p-2 w-full bg-green-600">Get Certified</button>
+          <Link href="/certification" className="p-2 w-full bg-green-600 text-center">
+            Get Certified
+          </Link>
           <button className="p-2 w-full bg-neutral-700">watch the video</button>
         </div>
       </div>

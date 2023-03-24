@@ -7,14 +7,15 @@ export default async function handler(req, res) {
     process.env.NEXT_PUBLIC_TWILIO_AUTH
   );
 
-  await client.messages
+  client.messages
     .create({
-      body: `${email}: ${message}`,
+      // body: `${email}: ${message}`,
+      body: 'get this',
       from: "whatsapp:+14155238886",
       to: process.env.NEXT_PUBLIC_TWILIO_PHONE,
     })
-    .then((message) => console.log(message.sid));
-  // .done();
+    .then((message) => console.log(message.sid))
+    .done();
 
-  return res.status(200);
+  return res.status(200).end();
 }

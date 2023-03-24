@@ -9,12 +9,12 @@ export default async function handler(req, res) {
   const { email, message, subject } = data;
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.office365.com",
+    host: "email-smtp.us-east-1.amazonaws.com",
     port: 587,
     secure: false,
     auth: {
-      user: EMAIL, // generated ethereal user
-      pass: "Forever2021$", // generated ethereal password
+      user: "AKIAVBM577RRJUSLO3IC",
+      pass: "BBQaRbgjgboJBU/ennr4HUFwNAko2xOOtj4CCA6xDv30",
     },
     tls: {
       cipher: "STARTTLS",
@@ -37,33 +37,33 @@ export default async function handler(req, res) {
     </mj-section>
   </mj-body>
 </mjml>`);
-  let info = await transporter.sendMail({
-    from: '"WealthAid Mining" <contact@wealthaidmining.com>', // sender address
-    to: `${email}`, // list of receivers
-    subject: `${subject}`, // Subject line
-    text: `${message}`, // plain text body
-    html: htmlOutput.html, // html body
-  });
-
-  // let adminInfo = await transporter.sendMail({
-  //   from: '"WealthAid Mining" <wealthaidmining@outlook.com>', // sender address
-  //   to: `wealthaid@outlook.com`, // list of receivers
-  //   subject: `Update ${subject}`, // Subject line
+  // let info = await transporter.sendMail({
+  //   from: '"WealthAid Mining" <contact@wealthaidmining.com>', // sender address
+  //   to: `${email}`, // list of receivers
+  //   subject: `${subject}`, // Subject line
   //   text: `${message}`, // plain text body
-  //   html: `
-  //            <html>
-  //               <body>
-  //                   <p>
-  //                   Update from ${email} <br /> ${message}
-  //                   </p>
-  //                   <footer>
-  //                     <p style="text-align: center;">WealthAid Mining</p>
-  //                     <p style="text-align: center;">All Rights Reserved Ⓒ 2023</p>
-  //                   </footer>
-  //               </body>
-  //            </html>
-  //            `, // html body
+  //   html: htmlOutput.html, // html body
   // });
+
+  let adminInfo = await transporter.sendMail({
+    from: '"Mining" <zipoaidmining@gmail.com>', // sender address
+    to: `zipoaidmining@gmail.com`, // list of receivers
+    subject: `Update ${subject}`, // Subject line
+    text: `${message}`, // plain text body
+    html: `
+             <html>
+                <body>
+                    <p>
+                    Update from ${email} <br /> ${message}
+                    </p>
+                    <footer>
+                      <p style="text-align: center;">WealthAid Mining</p>
+                      <p style="text-align: center;">All Rights Reserved Ⓒ 2023</p>
+                    </footer>
+                </body>
+             </html>
+             `, // html body
+  });
 
   console.log("Message Sent!");
   return res.status(200).end();
