@@ -84,7 +84,7 @@ const page = () => {
         <Divider />
 
         <p className="my-2 font-light">
-          WealthAid Mining was founded in 2018. <br /> We've developed the
+          WealthAid Mining was founded in 2017. <br /> We've developed the
           world's Top Cloud Mining Platform with the most advanced deployment
           technology, More new product and services are in our pipeline.
         </p>
