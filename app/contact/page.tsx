@@ -5,6 +5,7 @@ import { SiWhatsapp } from "react-icons/si";
 import { BiSupport } from "react-icons/bi";
 import { Toaster, toast } from "react-hot-toast";
 import Link from "next/link";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 const page = () => {
   return (
@@ -18,6 +19,13 @@ const page = () => {
             <HiLocationMarker className="w-full text-4xl" />
             <p>Location</p>
             <p>Address: 1900 Fifth Avenue North Birmingham, Alabama, USA</p>
+          </div>
+          <div className="w-full shadow p-2 text-center">
+            <AiOutlineClockCircle className="w-full text-4xl" />
+            <p>Opening Hours</p>
+            <p>Monday To Friday: 10am - 6pm</p>
+            <p>Saturday: 8am - 6pm</p>
+            <p>Sunday: 9am - 5pm</p>
           </div>
           <div className="w-full shadow p-2 text-center">
             <HiMail className="w-full text-4xl" />

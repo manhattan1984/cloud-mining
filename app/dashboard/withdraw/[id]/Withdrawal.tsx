@@ -54,9 +54,9 @@ const Withdrawal = ({
           <div className="">
             <p className="font-light text-sm">Withdrawal Type</p>
             <select className="my-2 w-full" name="" id="">
-              {wallets.map(({ name }) => (
-                <option value={name} key={name}>
-                  {name}
+              {["Bitcoin", "USDT (TRC20)"].map((coin) => (
+                <option value={coin} key={coin}>
+                  {coin}
                 </option>
               ))}
             </select>
@@ -80,7 +80,6 @@ const Withdrawal = ({
                   `We have been notified of your recent request of $${amountRef.current.value}. It is currently being processed. Thank you.`
                 );
                 // router.push(`/dashboard/${user_id}`);
-               
               }}
               className="text-green-600 py-1 px-3"
             >
