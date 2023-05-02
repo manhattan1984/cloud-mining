@@ -78,18 +78,28 @@ const DataCenterItem = ({ icon, name, body, image }) => {
 
 const page = () => {
   return (
-    <div className="">
+    <div className="pt-8">
       <div className="w-11/12 mx-auto">
         <p className="text-3xl my-4">About Us</p>
         <Divider />
 
         <p className="my-2 font-light">
+          WealthAid Mining was founded in 2017. We've developed the world's Top
+          Cloud Mining Platform with the most advanced deployment technology,
+          more new products and services are in our pipeline.
+          <br /> <br />
           With 7 years of private mining experience, Wealthaid was the first
           company in the world that came up with the cloud hosting idea. During
           the past years, Wealthaid has been working on improving both product
           and customer experience. Now, Wealthaid provides a comprehensive
           mining platform that offers various mining solutions for customers
           with different needs.
+          <br /> <br />
+          Since Wealthaid was founded in 2018 by parent company Zipoaid ,
+          Wealthaid mission was simpler than ever. As we are still working our
+          way to perfectly acquire our mission, we are expanding our resources
+          and mining experience to provide even better mining experience to
+          users.
         </p>
 
         <p className="text-3xl my-4">Our Team</p>
@@ -102,11 +112,9 @@ const page = () => {
         <p className="text-3xl my-4">Our Vision</p>
         <Divider />
         <p className="my-2 font-light">
-          Since Wealthaid was founded in 2018 by parent company Zipoaid ,
-          Wealthaid mission was simpler than ever. As we are still working our
-          way to perfectly acquire our mission, we are expanding our resources
-          and mining experience to provide even better mining experience to
-          users.
+          WealthAid Mining aims to extend our business to the entire
+          cryptocurrency industry chain in the future and serve global users
+          with technology innovations.
         </p>
       </div>
       <div className="">
