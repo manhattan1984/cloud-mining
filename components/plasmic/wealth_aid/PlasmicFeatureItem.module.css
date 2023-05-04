@@ -1,0 +1,53 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+.freeBox__sfgzn {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: var(--token-gcawmjNjEp6H);
+}
+.slotTargetChildren {
+  color: var(--token-BFhKBbh0b);
+  font-size: 42px;
+}
+.svg__q6Aw {
+  position: relative;
+  object-fit: cover;
+  margin-bottom: 0;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+.freeBox__hqIdT {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: var(--token-oBzPX0VptNrj);
+  display: flex;
+  flex-direction: row;
+}
+.slotTargetSlot {
+  text-transform: uppercase;
+  color: var(--token-oC4rD0qY4);
+  font-size: 22px;
+}
+.freeBox__vz6Ss {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+.slotTargetSlot2 {
+  font-size: var(--token-6EQMkyJH1hGn);
+  text-align: center;
+  color: var(--token-xbiBUJcrr3V8);
+}

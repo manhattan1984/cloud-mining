@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import Reviews from "./(components)/Reviews";
 import FAQ from "./(components)/FAQ";
 import Link from "next/link";
+import FeaturesBox from "@/components/FeaturesBox";
 
 const features = [
   {
@@ -146,7 +147,10 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           </p>
         </div>
         <div className="flex flex-col gap-2">
-          <Link href="/certification" className="p-2 w-full bg-green-600 text-center">
+          <Link
+            href="/certification"
+            className="p-2 w-full bg-green-600 text-center"
+          >
             Get Certified
           </Link>
           <button className="p-2 w-full bg-neutral-700">watch the video</button>
@@ -233,6 +237,10 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           </div>
         </div>
       </div>
+      <div className="mt-4 mb-6 flex flex-col gap-5">
+        <FeaturesBox />
+      </div>
+
       {/* Space Ship */}
       <div className="bg-neutral-900 h-[100vh] flex flex-col items-center justify-center w-ful gap-4 text-white p-2 py-4 text-center">
         <p className="text-2xl font-bold">WealthAid Mining</p>
@@ -276,6 +284,8 @@ export default function Home({ plans }: { plans: PlanType[] }) {
           ))}
         </div>
       </div>
+
+      <FeaturesBox minerHosting={true} />
 
       {/* Plans */}
       <div className="my-4">

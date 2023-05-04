@@ -13,6 +13,8 @@
     "@hcaptcha/react-hcaptcha": "^1.4.4",
     "@headlessui/react": "^1.7.13",
     "@next/font": "13.1.6",
+    "@plasmicapp/react-web": "^0.2.208",
+    "@plasmicpkgs/antd5": "^0.0.53",
     "@sendgrid/mail": "^7.7.0",
     "@supabase/auth-helpers-nextjs": "^0.5.4",
     "@supabase/supabase-js": "^2.7.1",

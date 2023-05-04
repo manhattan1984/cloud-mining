@@ -12,10 +12,10 @@ const ReviewItem = ({ name, title, message }) => {
             <p className="text-sm">Investor</p>
           </div>
 
-          <div class="flex items-center">
+          <div className="flex items-center">
             <svg
               aria-hidden="true"
-              class="w-5 h-5 text-yellow-400"
+              className="w-5 h-5 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const ReviewItem = ({ name, title, message }) => {
             </svg>
             <svg
               aria-hidden="true"
-              class="w-5 h-5 text-yellow-400"
+              className="w-5 h-5 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const ReviewItem = ({ name, title, message }) => {
             </svg>
             <svg
               aria-hidden="true"
-              class="w-5 h-5 text-yellow-400"
+              className="w-5 h-5 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const ReviewItem = ({ name, title, message }) => {
             </svg>
             <svg
               aria-hidden="true"
-              class="w-5 h-5 text-yellow-400"
+              className="w-5 h-5 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const ReviewItem = ({ name, title, message }) => {
             </svg>
             <svg
               aria-hidden="true"
-              class="w-5 h-5 text-yellow-400"
+              className="w-5 h-5 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
