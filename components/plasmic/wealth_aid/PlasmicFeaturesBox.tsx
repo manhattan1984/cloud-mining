@@ -322,7 +322,7 @@ function PlasmicFeaturesBox__RenderFunc(props: {
           slot2={
             hasVariant($state, "minerHosting", "minerHosting")
               ? "We provide a dashboard for customers to monitor their miner status 24/7, including hashrate, rejection rate, and daily income, etc."
-              : "Start earning your crypto within 48 hours after payment. Fast and easy!"
+              : "Start earning your crypto within 24 hours after payment. Fast and easy!"
           }
         >
           <p.PlasmicIcon
