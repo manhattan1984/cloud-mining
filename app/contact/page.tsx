@@ -32,12 +32,12 @@ const page = () => {
             <p>Mail Us</p>
             <p
               onClick={() => {
-                navigator.clipboard.writeText("support@wealthaidmining.com");
+                navigator.clipboard.writeText("wealthaid@outlook.com");
                 toast.success("Copied To Clipboard");
               }}
               className="text-green-600 cursor-pointer"
             >
-              support@wealthaidmining.com
+              wealthaid@outlook.com
             </p>
           </div>
           <div className="w-full shadow p-2 text-center">
