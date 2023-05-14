@@ -2,10 +2,12 @@
 import { useSupabase } from "@/app/(context)/supabase-provider";
 import React, { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
+import Avatar from "../../(components)/Avatar";
 
 const Profile = ({
   userData: {
     id,
+    avatar_url: databaseAvatarUrl,
     name_changes,
     first_name,
     last_name,
@@ -20,6 +22,7 @@ const Profile = ({
     cardano_wallet,
     usdt_bep20_wallet,
     usdt_trc20_wallet,
+    verification_image_approved,
   },
 }) => {
   const { supabase } = useSupabase();
@@ -37,6 +40,7 @@ const Profile = ({
   const [usdtTrc20Wallet, setUsdtTrc20Wallet] = useState(usdt_trc20_wallet);
   const [firstName, setFirstName] = useState(first_name);
   const [lastName, setLastName] = useState(last_name);
+  const [avatar_url, setAvatarUrl] = useState(databaseAvatarUrl);
 
   const url =
     process.env.NODE_ENV === "development"
@@ -56,6 +60,7 @@ const Profile = ({
         cardano_wallet: cardano,
         usdt_bep20_wallet: usdtBep20Wallet,
         usdt_trc20_wallet: usdtTrc20Wallet,
+        avatar_url,
       })
       .eq("id", id);
 
@@ -234,6 +239,28 @@ const Profile = ({
                 type="text"
                 value={signUpLink}
                 className="border p-1 my-2 w-full text-xs"
+              />
+            </div>
+            <div className="pb-4">
+              <p className="text-sm pb-3">Account Verification Image</p>
+              <div className="pb-2">
+                {verification_image_approved ? (
+                  <p className="text-green-600">
+                    Your image has been verified.
+                  </p>
+                ) : (
+                  <p className="text-red-600">
+                    Your image has not been verified.
+                  </p>
+                )}
+              </div>
+              <Avatar
+                uid={id}
+                url={avatar_url}
+                size={150}
+                onUpload={(url) => {
+                  setAvatarUrl(url);
+                }}
               />
             </div>
           </div>

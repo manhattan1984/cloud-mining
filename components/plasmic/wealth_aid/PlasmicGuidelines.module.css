@@ -1,0 +1,189 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.aboutUsBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  align-content: unset;
+  background: linear-gradient(#22222299, #22222299),
+    url("https://images.unsplash.com/photo-1621501011941-c8ee93618c9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80")
+      bottom 60% right 0px / cover no-repeat local;
+  margin-bottom: 0px;
+  min-width: 0;
+  padding: 177px 32px 179px;
+}
+.foreground2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1080px;
+  align-self: center;
+  min-width: 0;
+}
+.foreground2 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  min-width: 0;
+  margin-top: calc(0px - 32px);
+  height: calc(100% + 32px);
+}
+.foreground2 > :global(.__wab_flex-container) > *,
+.foreground2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.foreground2 > :global(.__wab_flex-container) > picture > img,
+.foreground2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 32px;
+}
+.freeBox__v7WVq {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.freeBox__v7WVq > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.freeBox__v7WVq > :global(.__wab_flex-container) > *,
+.freeBox__v7WVq > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__v7WVq > :global(.__wab_flex-container) > picture > img,
+.freeBox__v7WVq
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 16px;
+}
+.h1 {
+  padding-top: 0px;
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  font-weight: 700;
+  font-style: normal;
+  color: #ffffff;
+  text-align: center;
+  text-transform: none;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none;
+  text-overflow: clip;
+}
+.text {
+  position: relative;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  max-width: 528px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: capitalize;
+  line-height: 1.7;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none;
+  text-overflow: clip;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text {
+    font-size: 16px;
+    max-width: none;
+  }
+}
+.freeBox___7WsiX {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: #eeeeee;
+  width: 100%;
+  min-width: 0;
+  padding: 38px 64px 68px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___7WsiX {
+    width: 100%;
+    min-width: 0;
+    padding: 30px;
+    margin: 0px;
+  }
+}
+.freeBox__fx2En {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__fx2En {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+.guidelineItem__xLlL8:global(.__wab_instance) {
+  position: relative;
+}
+.svg__vkc3Z {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+}
+.guidelineItem__zigSc:global(.__wab_instance) {
+  position: relative;
+}
+.svg__qaNx6 {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+}
+.guidelineItem__vs3Q9:global(.__wab_instance) {
+  position: relative;
+}
+.svg__lixUj {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+}
+.guidelineItem__ez4TW:global(.__wab_instance) {
+  position: relative;
+}
+.svg___1RYki {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+}

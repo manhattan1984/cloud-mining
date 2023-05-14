@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
-import { SiWhatsapp } from "react-icons/si";
-import { TiLocation } from "react-icons/ti";
+import { BsTelegram } from "react-icons/bs";
 import Divider from "./Divider";
 
 const Footer = () => {
@@ -34,22 +33,29 @@ const Footer = () => {
             <AiOutlineMail className="text-xl text-white" />
             <p>support@wealthaidmining.com</p>
           </div>
-          <div className="flex gap-2 items-center my-1">
-            <TiLocation className="text-xl text-white" />
-            <p className="text-sm">
-              1900 Fifth Avenue North Birmingham, Alabama, USA
-            </p>
-          </div>
-          <div className="flex gap-2 items-center">
-            <SiWhatsapp className="text-white text-lg" />
-            <Link
-              passHref={true}
-              href="https://wa.me/+18055394475"
-              className="text-green-500 text-sm"
-            >
-              +1 805-539-4475
-            </Link>
-          </div>
+          <p className="py-1">
+            Wealthaid is headquartered in Singapore with offices in Alabama and
+            Thailand. For PR, media, sales, or any other queries, please contact
+            us here. We will get back to you as soon as possible.
+          </p>
+          {/* <div className="flex gap-2 items-center my-1">
+            <TiLocation className="text-xl  text-white" />
+            <div className="">
+              <p className="">#11-09, Raffles Quay, SINGAPORE (048580)</p>
+              <p>1900 Fifth Avenue North Birmingham, Alabama, USA</p>
+            </div>
+          </div> */}
+          <Link href="https://t.me/WEALTHAIDADMIN">
+            <div className="flex gap-2 items-center">
+              <div className="flex gap-1 items-center border border-white p-2 rounded-full">
+                <p className="">Contact Us</p>
+                <BsTelegram className="text-white text-lg" />
+              </div>
+              <p>
+                Search <br /> @wealthaidadmin <br /> On Telegram
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -66,8 +72,26 @@ const Footer = () => {
           <Link className="text-sm text-gray-100" href="/plans">
             Plans
           </Link>
-          <Link className="text-sm text-gray-100" href="/contact#">
+        </div>
+      </div>
+      <div className="">
+        <p className="text-xl">Help Center</p>
+        <Divider />
+        <div className="flex flex-col gap-3 py-2 md:flex-row">
+          <Link className="text-sm text-gray-100" href="/faqs">
+            FAQs
+          </Link>
+          <Link className="text-sm text-gray-100" href="/guidelines">
+            Guidelines
+          </Link>
+          <Link className="text-sm text-gray-100" href="/contact">
             Contact Us
+          </Link>
+          <Link
+            className="text-sm text-gray-100"
+            href="/WEALTHAID-TERM-AND-CONDITION.pdf"
+          >
+            Terms and Conditions
           </Link>
         </div>
       </div>

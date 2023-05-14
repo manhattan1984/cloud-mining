@@ -1,6 +1,6 @@
 "use client";
 import { useSupabase } from "@/app/(context)/supabase-provider";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { sendEmailToUser } from "@/utils/emailSender";
 import { useRouter } from "next/navigation";
@@ -10,12 +10,16 @@ const Withdrawal = ({
   user_id,
   wallets,
   email,
+  profile: { verification_image_approved },
 }: {
   user_id: string;
   email: string;
   wallets: {
     name: string;
   }[];
+  profile: {
+    verification_image_approved: boolean;
+  };
 }) => {
   const { supabase } = useSupabase();
 
@@ -35,10 +39,30 @@ const Withdrawal = ({
 
     toast.success("Processing Your Withdrawal");
   };
+
+  function processTransaction() {
+    addTransactionToDatabase(
+      "withdrawal",
+      // @ts-ignore
+      +amountRef.current.value
+    );
+    sendEmailToUser(
+      email,
+      "Withdrawal",
+      // @ts-ignore
+      `We have been notified of your recent request of $${amountRef.current.value}. It is currently being processed. Thank you.`
+    );
+    toast.success("Your withdrawal is being processed.");
+    setTimeout(() => {
+      router.push(`/dashboard/${user_id}`);
+      console.log("timeout");
+    }, 3000);
+  }
+
   return (
     <>
       <Toaster />
-      <div className="flex items-center justify-center h-[75vh]">
+      <div className="flex flex-col items-center justify-center h-full">
         <div className="bg-white flex flex-col gap-4 shadow p-8 rounded">
           <p className="font-bold">Withdraw Funds</p>
           <div className="">
@@ -54,7 +78,7 @@ const Withdrawal = ({
           <div className="">
             <p className="font-light text-sm">Withdrawal Type</p>
             <select className="my-2 w-full" name="" id="">
-              {["Bitcoin", "USDT (TRC20)"].map((coin) => (
+              {["Bitcoin", "USDT (TRC20)", "USDT (BEP20)"].map((coin) => (
                 <option value={coin} key={coin}>
                   {coin}
                 </option>
@@ -68,18 +92,14 @@ const Withdrawal = ({
           <div className="flex gap-2">
             <button
               onClick={() => {
-                addTransactionToDatabase(
-                  "withdrawal",
-                  // @ts-ignore
-                  +amountRef.current.value
+                console.log("verification", verification_image_approved);
+                if (verification_image_approved) {
+                  processTransaction();
+                  return;
+                }
+                toast.error(
+                  "Your account has not been verified. Go to profile and upload your account verification image."
                 );
-                sendEmailToUser(
-                  email,
-                  "Withdrawal",
-                  // @ts-ignore
-                  `We have been notified of your recent request of $${amountRef.current.value}. It is currently being processed. Thank you.`
-                );
-                // router.push(`/dashboard/${user_id}`);
               }}
               className="text-green-600 py-1 px-3"
             >

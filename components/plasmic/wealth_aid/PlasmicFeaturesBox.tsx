@@ -228,7 +228,7 @@ function PlasmicFeaturesBox__RenderFunc(props: {
             >
               {hasVariant($state, "minerHosting", "minerHosting")
                 ? "Our maintenance team works 24/7, taking care of ongoing monitoring, troubleshooting, maintenance and software updates. "
-                : "We provide 6-month and exclusive lifetime plans with a wide range of mining power.Ï"}
+                : "We provide 6-month and exclusive lifetime plans with a wide range of mining power."}
             </div>
           }
         >
@@ -264,7 +264,7 @@ function PlasmicFeaturesBox__RenderFunc(props: {
           slot2={
             hasVariant($state, "minerHosting", "minerHosting")
               ? "We offer customized packages for both newcomers and large-scale investors based on their needs of miner model, quantity, and contract duration."
-              : "Bitcoin, Ethereum and Litecoin cloud hash rate available."
+              : "Bitcoin, Doge and Litecoin cloud hash rate available."
           }
         >
           <p.PlasmicIcon
@@ -293,7 +293,7 @@ function PlasmicFeaturesBox__RenderFunc(props: {
           slot2={
             hasVariant($state, "minerHosting", "minerHosting")
               ? "All-in-one hosting price starts at 0.056USD/kWh (Electricity, maintenance, cooling, ethernet, labour, security and VPN are all included)."
-              : "Check your mining income, monthly fee and total hashrate via HashMax cloud dashboard."
+              : "Check your mining income, monthly fee and total hashrate via Wealthaid Mining cloud dashboard."
           }
         >
           <p.PlasmicIcon

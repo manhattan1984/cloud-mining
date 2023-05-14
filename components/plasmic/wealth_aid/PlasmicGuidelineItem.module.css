@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-width: 0;
+  padding: 32px 16px;
+  border-width: 1px;
+  border-style: solid;
+}
+.rootreverse {
+  background: var(--token-BFhKBbh0b);
+}
+.slotTargetChildren {
+  color: var(--token-BFhKBbh0b);
+  font-size: 150px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .slotTargetChildren {
+    font-size: 100px;
+  }
+}
+.slotTargetChildrenreverse {
+  color: #ffffff;
+}
+.svg___4B9U5 {
+  position: relative;
+  object-fit: cover;
+  height: 150px;
+  width: 1em;
+  flex-shrink: 0;
+}
+.h4 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .h4 {
+    font-size: 22px;
+  }
+}
+.h4reverse {
+  color: #ffffff;
+}
+.slotTargetSlot {
+  text-transform: uppercase;
+  color: var(--token-BFhKBbh0b);
+}
+.slotTargetSlotreverse {
+  color: var(--token-mzZ0HnCQV_jk);
+}

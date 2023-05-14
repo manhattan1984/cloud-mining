@@ -12,7 +12,6 @@ import Link from "next/link";
 
 export const revalidate = 0;
 
-
 export default async function RootLayout({
   children,
 }: {
@@ -32,6 +31,7 @@ export default async function RootLayout({
     { name: "plans", link: "/plans" },
     { name: "about", link: "/about" },
     { name: "contact", link: "/contact" },
+    { name: "History", link: "/company-history" },
     { name: "FAQs", link: "/faqs" },
   ];
 
@@ -43,6 +43,7 @@ export default async function RootLayout({
     { name: "dashboard", link: `/dashboard/${userId}` },
     { name: "about", link: "/about" },
     { name: "contact", link: "/contact" },
+    { name: "History", link: "/company-history" },
   ];
 
   const accessToken = session?.access_token;

@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700&family=Playfair+Display%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700&family=Roboto%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C700&display=swap");
 
 .plasmic_tokens {
   --token-BFhKBbh0b: #388e3c;
   --plasmic-token-main-theme: var(--token-BFhKBbh0b);
   --token-oC4rD0qY4: #141313;
   --plasmic-token-text-heading: var(--token-oC4rD0qY4);
+  --token-5yAnRxhYs: #ffffff;
+  --plasmic-token-white: var(--token-5yAnRxhYs);
 }
 
 .plasmic_tokens {
