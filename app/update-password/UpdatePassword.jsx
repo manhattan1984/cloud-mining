@@ -3,16 +3,15 @@ import React, { useRef } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useSupabase } from "../(context)/supabase-provider";
 
-const ForgotPassword = () => {
+const UpdatePassword = () => {
   const { supabase } = useSupabase();
 
-  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const resetPassword = async () => {
-    const { data, error } = await supabase.auth.resetPasswordForEmail(
-      emailRef.current.value,
-      { redirectTo: "https://www.wealthaidmining.com/update-password" }
-    );
+  const updatePassword = async () => {
+    const { data, error } = await supabase.auth.updateUser({
+      password: passwordRef.current.value,
+    });
 
     console.log("data", data, "error", error);
 
@@ -21,10 +20,7 @@ const ForgotPassword = () => {
       console.log("reset error", error);
       return;
     }
-    toast.success(
-      "Password Reset Sent To Your Email. Check your spam folder.",
-      { duration: 4000 }
-    );
+    toast.success("Password update successful. Sign in.", { duration: 4000 });
   };
   return (
     <>
@@ -32,24 +28,24 @@ const ForgotPassword = () => {
       <div className="bg-neutral-100 flex justify-center items-center h-screen">
         <div className="w-4/5 mx-auto">
           <div className="rounded bg-white flex flex-col gap-2 w-full p-4">
-            <p className="text-2xl mb-4">Forgot Password?</p>
+            <p className="text-2xl mb-4">Update Password</p>
             <div className="flex flex-col">
-              <label className="mb-2 text-sm" htmlFor="email">
-                Email
+              <label className="mb-2 text-sm" htmlFor="password">
+                Password
               </label>
               <input
                 required
-                ref={emailRef}
+                ref={passwordRef}
                 className="p-2 border mb-4"
-                id="email"
-                type="email"
+                id="password"
+                type="password"
               />
             </div>
             <button
-              onClick={resetPassword}
+              onClick={updatePassword}
               className="bg-green-600 text-white p-2 uppercase"
             >
-              Reset Password
+              Update Password
             </button>
           </div>
         </div>
@@ -58,4 +54,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default UpdatePassword;

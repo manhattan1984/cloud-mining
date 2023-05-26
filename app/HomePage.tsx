@@ -23,6 +23,7 @@ import Reviews from "./(components)/Reviews";
 import FAQ from "./(components)/FAQ";
 import Link from "next/link";
 import FeaturesBox from "@/components/FeaturesBox";
+import { useSupabase } from "./(context)/supabase-provider";
 
 const features = [
   {
@@ -121,6 +122,24 @@ export default function Home({ plans }: { plans: PlanType[] }) {
   const signUp = () => {
     router.push("/signup");
   };
+
+  const { supabase } = useSupabase();
+
+  useEffect(() => {
+    supabase.auth.onAuthStateChange(async (event: string, session: any) => {
+      if (event == "PASSWORD_RECOVERY") {
+        const newPassword = prompt(
+          "What would you like your new password to be?"
+        );
+        const { data, error } = await supabase.auth.updateUser({
+          password: newPassword,
+        });
+
+        if (data) alert("Password updated successfully!");
+        if (error) alert("There was an error updating your password.");
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
