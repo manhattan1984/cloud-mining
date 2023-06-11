@@ -95,7 +95,7 @@ const Footer = () => {
           </Link>
           <Link
             className="text-sm text-gray-100"
-            href="https://www.wealthaidmax.com/"
+            href="https://www.wealthaidmax.org/"
           >
             Wealthaid Max
           </Link>
