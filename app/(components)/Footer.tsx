@@ -93,6 +93,12 @@ const Footer = () => {
           >
             Terms and Conditions
           </Link>
+          <Link
+            className="text-sm text-gray-100"
+            href="https://www.wealthaidmax.com/"
+          >
+            Wealthaid Max
+          </Link>
         </div>
       </div>
     </div>
