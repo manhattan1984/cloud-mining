@@ -17,9 +17,11 @@ export default async function DashboardLayout({
     data: { session },
   } = await supabase.auth.getSession();
 
-  if (!session) {
-    redirect("/signin");
-  }
+  // if (!session) {
+  //   console.log('redirecting');
+    
+  //   redirect("/signin");
+  // }
 
   return (
     <section className="bg-gray-100">

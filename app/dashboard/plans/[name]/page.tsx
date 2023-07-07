@@ -10,6 +10,8 @@ const page = async ({ params: name }) => {
   async function getCurrentSignedInUser() {
     const id = (await supabase.auth.getSession())?.data.session?.user.id;
 
+    
+
     return id;
   }
 

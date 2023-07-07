@@ -3,6 +3,7 @@ import { useSupabase } from "@/app/(context)/supabase-provider";
 import { sendEmailToUser } from "@/utils/emailSender";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { AiOutlineClose } from "react-icons/ai";
@@ -33,7 +34,10 @@ const Payment = ({ amount, setShow, name, address, qr_code_url }) => {
             </div>
           </div>
           <p>
-            {name} Wallet: <span className="font-bold w-full break-all text-xs">{address}</span>{" "}
+            {name} Wallet:{" "}
+            <span className="font-bold w-full break-all text-xs">
+              {address}
+            </span>{" "}
           </p>
         </div>
       </div>
@@ -68,6 +72,7 @@ const Invest = ({
     qr_code_url: string;
   }[];
 }) => {
+  const router = useRouter();
   const { supabase, session } = useSupabase();
   const [showPayment, setShowPayment] = useState(false);
   const amountRef = useRef(0);
@@ -76,12 +81,17 @@ const Invest = ({
   const [payout, setPayout] = useState(0);
   const [profit, setProfit] = useState(0);
 
+  if (!user_id) {
+    router.push("/signin");
+  }
+
   const addTransactionToDatabase = async (type: string, amount: number) => {
     const { data, error } = await supabase
       .from("transactions")
       .insert([{ plan: name, user_id, amount, type: "deposit" }]);
     if (error) {
       toast.error(`Error, ${error}`);
+      console.log("Error", error);
       return;
     }
     toast.success("Processing Your Investment");
