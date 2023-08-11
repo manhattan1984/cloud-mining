@@ -93,7 +93,8 @@ const Withdrawal = ({
             <button
               onClick={() => {
                 console.log("verification", verification_image_approved);
-                if (verification_image_approved) {
+                // @ts-ignore
+                if (verification_image_approved || (+amountRef.current.value <= 500)) {
                   processTransaction();
                   return;
                 }

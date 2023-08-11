@@ -206,7 +206,7 @@ const Profile = ({
               <p className="text-sm">Cardano Wallet</p>
               <input
                 type="text"
-                value={zcash_wallet}
+                value={cardano}
                 onChange={(e) => setCardano(e.target.value)}
                 className="border p-1 my-2 w-full"
               />
@@ -215,7 +215,7 @@ const Profile = ({
               <p className="text-sm">USDT (BEP20) Wallet</p>
               <input
                 type="text"
-                value={zcash_wallet}
+                value={usdtBep20Wallet}
                 onChange={(e) => setUsdtBep20Wallet(e.target.value)}
                 className="border p-1 my-2 w-full"
               />
@@ -224,7 +224,7 @@ const Profile = ({
               <p className="text-sm">USDT (TRC20) Wallet</p>
               <input
                 type="text"
-                value={zcash_wallet}
+                value={usdtTrc20Wallet}
                 onChange={(e) => setUsdtTrc20Wallet(e.target.value)}
                 className="border p-1 my-2 w-full"
               />
