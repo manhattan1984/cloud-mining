@@ -23,6 +23,7 @@ const Profile = ({
     usdt_bep20_wallet,
     usdt_trc20_wallet,
     verification_image_approved,
+    show_verification_image,
   },
 }) => {
   const { supabase } = useSupabase();
@@ -241,28 +242,30 @@ const Profile = ({
                 className="border p-1 my-2 w-full text-xs"
               />
             </div>
-            <div className="pb-4">
-              <p className="text-sm pb-3">Account Verification Image</p>
-              <div className="pb-2">
-                {verification_image_approved ? (
-                  <p className="text-green-600">
-                    Your image has been verified.
-                  </p>
-                ) : (
-                  <p className="text-red-600">
-                    Your image has not been verified.
-                  </p>
-                )}
+            {show_verification_image ? (
+              <div className="pb-4">
+                <p className="text-sm pb-3">Account Verification Image</p>
+                <div className="pb-2">
+                  {verification_image_approved ? (
+                    <p className="text-green-600">
+                      Your image has been verified.
+                    </p>
+                  ) : (
+                    <p className="text-red-600">
+                      Your image has not been verified.
+                    </p>
+                  )}
+                </div>
+                <Avatar
+                  uid={id}
+                  url={avatar_url}
+                  size={150}
+                  onUpload={(url) => {
+                    setAvatarUrl(url);
+                  }}
+                />
               </div>
-              <Avatar
-                uid={id}
-                url={avatar_url}
-                size={150}
-                onUpload={(url) => {
-                  setAvatarUrl(url);
-                }}
-              />
-            </div>
+            ) : null}
           </div>
           <button onClick={handleUpdateWallets} className="text-green-600 my-2">
             Save Profile
