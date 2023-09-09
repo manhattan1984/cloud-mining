@@ -53,7 +53,7 @@ const calculateInterest = (amount: number, interest: number) => {
 };
 
 const Invest = ({
-  plan: { name, interest, minimum, maximum },
+  plan: { name, interest, minimum, maximum, currency },
   user_id,
   wallets,
   email,
@@ -64,6 +64,7 @@ const Invest = ({
     interest: number;
     minimum: number;
     maximum: number;
+    currency: string;
   };
   user_id: string;
   wallets: {
@@ -148,7 +149,7 @@ const Invest = ({
               />
             </div>
             <div className="">
-              <p className="text-sm mb-2">Expected Interest ($)</p>
+              <p className="text-sm mb-2">Expected Interest ({currency})</p>
               <input
                 value={profit}
                 className="border p-2 rounded w-full"
@@ -157,7 +158,7 @@ const Invest = ({
               />
             </div>
             <div className="">
-              <p className="text-sm mb-2">Expected Payout ($)</p>
+              <p className="text-sm mb-2">Expected Payout ({currency})</p>
               <input
                 value={payout}
                 className="border p-2 rounded w-full"

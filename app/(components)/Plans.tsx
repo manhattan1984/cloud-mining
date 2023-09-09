@@ -8,9 +8,21 @@ export type PlanType = {
   maximum: number | string;
   interest: number;
   duration: number;
+  extra: string;
+  currency: string;
+  hashrate: number;
 };
 
-const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
+const Plan = ({
+  name,
+  minimum,
+  maximum,
+  interest,
+  duration,
+  extra,
+  currency,
+  hashrate,
+}: PlanType) => {
   const maximumType = typeof maximum;
   return (
     <div className="border rounded shadow w-4/5 mx-auto basis-1/4 flex-grow">
@@ -20,12 +32,15 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
       <div className="flex flex-col gap-1 px-4">
         <div className="flex justify-between">
           <p>Minimum Funding:</p>
-          <p>${minimum}</p>
+          <p>
+            {currency}
+            {minimum}
+          </p>
         </div>
         <div className="flex justify-between">
           <p>Maximum Funding:</p>
           <p>
-            {maximumType ? "$" : ""}
+            {currency}
             {maximum || "Unlimited"}
           </p>
         </div>
@@ -39,7 +54,7 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
         </div>
         <div className="flex justify-between">
           <p>Bitcoin Hashrate:</p>
-          <p>14710TH/s</p>
+          <p>{hashrate}TH/s</p>
         </div>
         <div className="flex justify-between">
           <p>Fast Payout:</p>
@@ -49,6 +64,11 @@ const Plan = ({ name, minimum, maximum, interest, duration }: PlanType) => {
           <p>Support Forum:</p>
           <p>Yes</p>
         </div>
+        {extra ? (
+          <div className="flex justify-between">
+            <p>Company bonuses available on this plan</p>
+          </div>
+        ) : null}
 
         <Link href={`/dashboard/plans/${name}`}>
           <button className="text-green-700 uppercase text-left py-4">
