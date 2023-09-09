@@ -8,7 +8,7 @@ export type PlanType = {
   maximum: number | string;
   interest: number;
   duration: number;
-  extra: string;
+  extra: boolean;
   currency: string;
   hashrate: number;
 };
@@ -32,16 +32,13 @@ const Plan = ({
       <div className="flex flex-col gap-1 px-4">
         <div className="flex justify-between">
           <p>Minimum Funding:</p>
-          <p>
-            {currency}
-            {minimum}
-          </p>
+          <p>{currency === "$" ? `$${minimum}` : `${minimum} BTC`}</p>
         </div>
         <div className="flex justify-between">
           <p>Maximum Funding:</p>
+
           <p>
-            {currency}
-            {maximum || "Unlimited"}
+            {currency === "$" ? `$${maximum || "Unlimited"}` : `${maximum} BTC`}
           </p>
         </div>
         <div className="flex justify-between">
@@ -87,10 +84,22 @@ const Plans = ({ plans }: { plans: PlanType[] }) => {
         <p className="text-3xl my-2">Our Plans</p>
         <Divider />
         <div className="flex flex-col md:flex-row md:flex-wrap gap-4 my-4">
-          {plans.map((plan, index) => (
-            // <div className=""></div>
-            <Plan {...plan} key={index} />
-          ))}
+          {plans
+            .filter(({ extra }) => !extra)
+            .map((plan, index) => (
+              // <div className=""></div>
+              <Plan {...plan} key={index} />
+            ))}
+        </div>
+        <p className="text-3xl my-2">Exclusive Investment Plan</p>
+        <Divider />
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-4 my-4">
+          {plans
+            .filter(({ extra }) => extra)
+            .map((plan, index) => (
+              // <div className=""></div>
+              <Plan {...plan} key={index} />
+            ))}
         </div>
       </div>
     </div>
