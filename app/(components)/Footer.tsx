@@ -45,7 +45,7 @@ const Footer = () => {
               <p>1900 Fifth Avenue North Birmingham, Alabama, USA</p>
             </div>
           </div> */}
-          <Link href="https://t.me/WEALTHAIDADMIN">
+          <Link href="https://t.me/workatwealthaid">
             <div className="flex gap-2 items-center">
               <div className="flex gap-1 items-center border border-white p-2 rounded-full">
                 <p className="">Contact Us</p>
