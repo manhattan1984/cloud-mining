@@ -52,7 +52,7 @@ const Footer = () => {
                 <BsTelegram className="text-white text-lg" />
               </div>
               <p>
-                Search <br /> @wealthaidadmin <br /> On Telegram
+                Search <br /> @workatwealthaid <br /> On Telegram
               </p>
             </div>
           </Link>
