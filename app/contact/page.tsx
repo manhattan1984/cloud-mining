@@ -49,7 +49,7 @@ const page = () => {
             <p>Chat With Us 24/7 </p>
             <div className="flex flex-col gap-1 items-center justify-center pt-2 w-full">
               <BsTelegram className="" />
-              <p>Search @wealthaidadmin On Telegram</p>
+              <p>Search @workatwealthaid On Telegram</p>
             </div>
           </div>
         </div>
